@@ -1,6 +1,6 @@
 <?php
     $host = 'localhost';
-    $db = 'db_ogc';
+    $db = 'db_posgrado';
     $user = 'root';
     $password = '';
     $charset ='utf8';

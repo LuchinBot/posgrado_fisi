@@ -1,7 +1,7 @@
 <?php
 //General
 require('database/connection.php');
-$url = "http://posgrado.test/";
+$url = "http://localhost/posgrado_fisi/";
 
 $dateTime = new DateTime();
 $dateTime->setTimezone(new DateTimeZone('America/Lima'));
@@ -11,19 +11,19 @@ if ($page == 2) {
 
   session_start();
 
-  if (!isset($_SESSION['user'])) {
+  if (!isset($_SESSION['user_id'])) {
     echo '<script type="text/javascript">window.location="' . $url . 'login";</script>';
   } else {
-    $stm = $base->prepare('SELECT * FROM usuario as u
-    inner join persona_natural as pn on(pn.idpersona_natural = u.idpersona)
-    inner join perfil as p on(p.idperfil = u.idperfil) WHERE u.idusuario = ?');
-    $userData = $stm->execute(array($_SESSION['user']));
+    
+    $stm = $base->prepare('SELECT * FROM users as u
+    inner join profiles as p on(p.idprofiles = u.idprofiles) WHERE u.idusers = ?');
+    $userData = $stm->execute(array($_SESSION['user_id']));
     $userData = $stm->fetch(PDO::FETCH_ASSOC);
 
-    $firstName = explode(" ", $userData['nombres']);
-    $firstName = $nameUser[0];
-    $lastName = explode(" ", $userData['apellidos']);
-    $lastName = $apellidoUser[0];
+    $firstName = explode(" ", $userData['firstname']);
+    $firstName = $firstName[0];
+    $lastName = explode(" ", $userData['lastname']);
+    $lastName = $lastName[0];
 
     $fullName = $firstName . ' ' . $lastName;
   }

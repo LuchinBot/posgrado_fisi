@@ -1,8 +1,8 @@
 <?php
 $title_page = "Inicio";
+$page = 2;
 ?>
-<?php include "../../layouts/header_admin.php"; ?>
-<?php include "../../layouts/navbar_admin.php"; ?>
+<?php include "../layouts/header.php"; ?>
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <div class="content-header">
@@ -28,5 +28,5 @@ $title_page = "Inicio";
     </div>
   </section>
 </div>
-<?php include "../../layouts/footer_admin.php"; ?>
-<?php include "../../layouts/scripts.php"; ?>
+<?php include "../layouts/footer.php"; ?>
+<?php include "../layouts/scripts.php"; ?>

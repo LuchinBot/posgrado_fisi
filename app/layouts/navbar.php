@@ -81,7 +81,7 @@ if ($page == 2) { ?>
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <li class="nav-item">
-                        <a href="<?= $url ?>public/view/admin/" class="nav-link">
+                        <a href="<?= $url ?>public/view/" class="nav-link">
                             <i class="nav-icon fa fa-home"></i>
                             <p>
                                 Ventana principal
@@ -90,7 +90,7 @@ if ($page == 2) { ?>
                     </li>
                     <?php if ($userData['idprofiles'] == 1) { ?>
                         <li class="nav-item">
-                            <a href="<?= $url ?>public/view/admin/nosotros" class="nav-link">
+                            <a href="<?= $url ?>public/view/nosotros" class="nav-link">
                                 <i class="nav-icon fa fa-institution"></i>
                                 <p>
                                     Nosotros generales
@@ -98,7 +98,7 @@ if ($page == 2) { ?>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $url ?>public/view/admin/personal" class="nav-link">
+                            <a href="<?= $url ?>public/view/personal" class="nav-link">
                                 <i class="nav-icon fa fa-users"></i>
                                 <p>
                                     Nuestro Personal
@@ -106,7 +106,7 @@ if ($page == 2) { ?>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $url ?>public/view/admin/carrusel" class="nav-link">
+                            <a href="<?= $url ?>public/view/carrusel" class="nav-link">
                                 <i class="nav-icon fa fa-image"></i>
                                 <p>
                                     Carrusel principal
@@ -114,7 +114,7 @@ if ($page == 2) { ?>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $url ?>public/view/admin/noticias" class="nav-link">
+                            <a href="<?= $url ?>public/view/noticias" class="nav-link">
                                 <i class="nav-icon fa fa-newspaper"></i>
                                 <p>
                                     Nuestras noticias
@@ -122,7 +122,7 @@ if ($page == 2) { ?>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $url ?>public/view/admin/eventos" class="nav-link">
+                            <a href="<?= $url ?>public/view/eventos" class="nav-link">
                                 <i class="nav-icon fa fa-calendar-days"></i>
                                 <p>
                                     Nuestros eventos
@@ -130,7 +130,7 @@ if ($page == 2) { ?>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $url ?>public/view/admin/galeria" class="nav-link">
+                            <a href="<?= $url ?>public/view/galeria" class="nav-link">
                                 <i class="nav-icon fa-solid fa-photo-film"></i>
                                 <p>
                                     Nuestra Galería
@@ -138,7 +138,7 @@ if ($page == 2) { ?>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $url ?>public/view/admin/enlaces" class="nav-link">
+                            <a href="<?= $url ?>public/view/enlaces" class="nav-link">
                                 <i class="nav-icon fa fa-link"></i>
                                 <p>
                                     Nuestros Enlaces
@@ -155,25 +155,25 @@ if ($page == 2) { ?>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?= $url ?>public/view/admin/" class="nav-link">
+                                    <a href="<?= $url ?>public/view/" class="nav-link">
                                         <i class="fa fa-id-card nav-icon"></i>
                                         <p>Perfiles</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= $url ?>public/view/admin/" class="nav-link">
+                                    <a href="<?= $url ?>public/view/" class="nav-link">
                                         <i class="fa fa-user nav-icon"></i>
                                         <p>Usuarios</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= $url ?>public/view/admin/" class="nav-link">
+                                    <a href="<?= $url ?>public/view/" class="nav-link">
                                         <i class="fa fa-user nav-icon"></i>
                                         <p>Personas Naturales</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= $url ?>public/view/admin/" class="nav-link">
+                                    <a href="<?= $url ?>public/view/" class="nav-link">
                                         <i class="fa fa-user nav-icon"></i>
                                         <p>Cargos</p>
                                     </a>
@@ -183,7 +183,7 @@ if ($page == 2) { ?>
                     <?php } ?>
                     <?php if ($userData['idprofiles'] == 2) { ?>
                         <li class="nav-item">
-                            <a href="<?= $url ?>public/view/admin/nosotros" class="nav-link">
+                            <a href="<?= $url ?>public/view/nosotros" class="nav-link">
                                 <i class="nav-icon fa fa-institution"></i>
                                 <p>
                                     Nosotros generales
@@ -191,7 +191,7 @@ if ($page == 2) { ?>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $url ?>public/view/admin/personal" class="nav-link">
+                            <a href="<?= $url ?>public/view/personal" class="nav-link">
                                 <i class="nav-icon fa fa-users"></i>
                                 <p>
                                     Nuestro Personal
@@ -199,7 +199,7 @@ if ($page == 2) { ?>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $url ?>public/view/admin/carrusel" class="nav-link">
+                            <a href="<?= $url ?>public/view/carrusel" class="nav-link">
                                 <i class="nav-icon fa fa-image"></i>
                                 <p>
                                     Carrusel principal
@@ -207,7 +207,7 @@ if ($page == 2) { ?>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $url ?>public/view/admin/noticias" class="nav-link">
+                            <a href="<?= $url ?>public/view/noticias" class="nav-link">
                                 <i class="nav-icon fa fa-newspaper"></i>
                                 <p>
                                     Nuestras noticias
@@ -215,7 +215,7 @@ if ($page == 2) { ?>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $url ?>public/view/admin/eventos" class="nav-link">
+                            <a href="<?= $url ?>public/view/eventos" class="nav-link">
                                 <i class="nav-icon fa fa-calendar-days"></i>
                                 <p>
                                     Nuestros eventos
@@ -223,7 +223,7 @@ if ($page == 2) { ?>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $url ?>public/view/admin/galeria" class="nav-link">
+                            <a href="<?= $url ?>public/view/galeria" class="nav-link">
                                 <i class="nav-icon fa-solid fa-photo-film"></i>
                                 <p>
                                     Nuestra Galería
@@ -231,7 +231,7 @@ if ($page == 2) { ?>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $url ?>public/view/admin/enlaces" class="nav-link">
+                            <a href="<?= $url ?>public/view/enlaces" class="nav-link">
                                 <i class="nav-icon fa fa-link"></i>
                                 <p>
                                     Nuestros Enlaces

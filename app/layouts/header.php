@@ -14,7 +14,7 @@ if ($page == 2) {
   if (!isset($_SESSION['user_id'])) {
     echo '<script type="text/javascript">window.location="' . $url . 'login";</script>';
   } else {
-    
+
     $stm = $base->prepare('SELECT * FROM users as u
     inner join profiles as p on(p.idprofiles = u.idprofiles) WHERE u.idusers = ?');
     $userData = $stm->execute(array($_SESSION['user_id']));
@@ -44,12 +44,14 @@ if ($page == 2) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-  
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
   <!--Web-->
   <?php if ($page == 1) { ?>
     <link href="<?= $url ?>src/css/web/important.css" rel="stylesheet">
-    <link href="<?= $url ?>src/css/web/app.css" rel="stylesheet">
-    <link href="<?= $url ?>src/css/web/web.css" rel="stylesheet">
     <link href="<?= $url ?>src/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="<?= $url ?>src/plugins/fontawesome/css/fontawesome.min.css" rel="stylesheet">
     <link href="<?= $url ?>src/plugins/fontawesome/css/all.min.css" rel="stylesheet">
@@ -79,6 +81,7 @@ if ($page == 2) {
 
   <body class="w-100">
     <?php include_once('navbar.php'); ?>
+
     <div class="wrapper">
     <?php } ?>
     <?php if ($page == 2) { ?>

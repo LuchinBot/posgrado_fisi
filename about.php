@@ -1,131 +1,65 @@
 <?php
 //Variable
 $page = 1;
-$title_page = 'Nosotros - FISI';
+$title_page = 'Inicio - FISI';
+include('app/layouts/header.php');
+
 ?>
-<?php include('app/layouts/header.php') ?>
-<!-- Header Start -->
-<div class="container-fluid bg-success py-5 mb-5 page-header">
-    <div class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-10 text-center">
-                <h1 class="display-3 text-white animated slideInDown">¿Quiénes somos?</h1>
-                <span style="color: white; font-weight:200">La Unidad de Posgrado de la Facultad de Ingenieria de Sistemas e Informática de
-                    la Universidad Nacional de San Martín - Tarapoto, de acuerdo a su competencia y cumpliendo con sus
-                    fines y objetivos creados, desarrollara las especialidades en Maestria.</span>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container-xxl py-5">
-    <div class="container">
-        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-            <h6 class="section-title bg-white text-center text-primary px-3">EL MEJOR EQUIPO DIRECTIVO</h6>
-            <h1 class="mb-5">Autoridades Universidad Nacional de San Martin</h1>
-        </div>
-        <div class="row g-4">
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="team-item bg-light">
-                    <div class="overflow-hidden">
-                        <img class="imgautounsm" src="<?= $url ?>/src/img/default/about/1.jpg" alt="">
-                    </div>
-                    <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                        <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                    <div class="text-center p-4">
-                        <h5 class="mb-0">Dr. AQUILINO MESÍAS GARCÍA BAUTISTA</h5>
-                        <small>RECTOR</small>
-                    </div>
+<section class="h-100">
+    <div class="container-fluid p-0">
+        <div class="p-0">
+            <div class="container py-0 px-5 h-100 d-flex justify-content-center align-items-center">
+                <div class="col-md-6">
+                    <h1 class="text-dark mb-3 fw-bold" style="font-size: 44px !important;">¿Quiénes Somos?</h1>
+                    <p class="text-secondary fs-5 mb-5 pe-5">
+                        Transformando mentes, creando innovadores. ¡Descubre el futuro en la Unidad de Posgrado de la Facultad de Ingeniería de Sistemas e Informática!
+                    </p>
+                    <a href="<?= $url ?>courses#contact" class="btn bg-primary text-white fs-4 fw-bold px-4">
+                        <i class="fa-brands fa-facebook"></i> Visítanos
+                    </a>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="team-item bg-light">
-                    <div class="overflow-hidden">
-                        <img class="imgautounsm" src="<?= $url ?>/src/img/default/about/2.jpg" alt="">
-                    </div>
-                    <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                        <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                    <div class="text-center p-4">
-                        <h5 class="mb-0">DRA. ROSSANA H. HIDALGO POZZI</h5>
-                        <small>VICERRECTORA ACADÉMICA</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="team-item bg-light">
-                    <div class="overflow-hidden">
-                        <img class="imgautounsm" src="<?= $url ?>/src/img/default/about/3.jpg" alt="">
-                    </div>
-                    <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                        <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                    <div class="text-center p-4">
-                        <h5 class="mb-0">DRA. ALICIA BARTRA REÁTEGUIVI</h5>
-                        <small>VICERRECTORA DE INVESTIGACIÓN</small>
-                    </div>
+                <div class="col-md-6 p-0">
+                    <img src="<?= $url ?>src/img/default/about.jpg" style="width: 100%;">
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="container-xxl py-5">
-    <div class="container">
-        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-            <h6 class="section-title bg-white text-center text-primary px-3">EL MEJOR EQUIPO DIRECTIVO</h6>
-            <h1 class="mb-5">Autoridades de la Unidad de Posgrado FISI</h1>
-        </div>
-        <div class="row g-4">
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                <div class="team-item bg-light">
-                    <div class="overflow-hidden">
-                        <img class="imgautounsm" src="<?= $url ?>/src/img/default/about/4.jpg" alt="">
+</section>
+<div class="container-fluid pb-0 pt-5 base-contact" id="contact">
+    <div class="container p-0 border-top">
+        <h3 class="text-white fw-bold mt-3">Solicita información</h3>
+        <form method="post" action="contact">
+            <div class="row mt-4">
+                <div class="col-md-4 pe-5">
+                    <div class="mb-3">
+                        <label for="inputname" class="form-label text-white">Nombres y apellidos</label>
+                        <input type="text" class="form-control contact-input" id="inputname" placeholder="Luis José Hidalgo">
                     </div>
-                    <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                        <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                        </div>
+                    <div class="mb-3">
+                        <label for="inputphone" class="form-label text-white">Celular</label>
+                        <input type="text" class="form-control contact-input" id="inputphone" placeholder="932059359">
                     </div>
-                    <div class="text-center p-4">
-                        <h5 class="mb-0">Lic. M. Sc. MARCO A. GALVEZ DIAZ</h5>
-                        <small>Decano Facultad de Ingeniería de Sistemas e Informática</small>
+                    <div class="mb-3">
+                        <label for="inputemail" class="form-label text-white">Email address</label>
+                        <input type="email" class="form-control contact-input" id="inputemail" placeholder="micorreo@gmail.com">
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                <div class="team-item bg-light">
-                    <div class="overflow-hidden">
-                        <img class="imgautounsm" src="<?= $url ?>/src/img/default/about/5.jpg" alt="">
-                    </div>
-                    <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                        <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                    <div class="text-center p-4">
-                        <h5 class="mb-0">Dr. ING.M.SC. ALBERTO ALVA ARÉVALO</h5>
-                        <small>Director de Ingenieria de Sistemas e Informatica de la Unidad de Posgrado</small>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="textarea" class="form-label text-white">Describa la solicitud</label>
+                        <textarea class="form-control contact-textarea" id="textarea" placeholder="Solicito información..." rows="8"></textarea>
                     </div>
                 </div>
+                <div class="col-md-4 p-0 base-image-contact">
+                    <img src="<?= $url ?>src/img/default/contact.png" class="image-contact">
+                    <span class="float-contact">
+                        <button type="submit">¡Solicitar!</button>
+                    </span>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>
+
 <?php include('app/layouts/footer.php') ?>
 <?php include('app/layouts/scripts.php') ?>

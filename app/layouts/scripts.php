@@ -1,5 +1,6 @@
     </div>
     <div class="loader-page"></div>
+
     <?php if ($page == 1) { ?>
         <!--Others-->
         <script src="<?= $url ?>src/plugins/popper/popper.min.js"></script>
@@ -85,7 +86,10 @@
                     ]
                 });
 
-                $(window).on('load', function() {
+                $("#validateForm").validate({});
+            });
+
+            $(window).on('load', function() {
                     setTimeout(function() {
                         $(".loader-page").css({
                             visibility: "hidden",
@@ -94,9 +98,6 @@
                     }, 2000);
 
                 });
-
-                $("#validateForm").validate({});
-            });
         </script>
     <?php } ?>
     </body>

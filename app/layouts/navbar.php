@@ -1,35 +1,25 @@
 <?php if ($page == 1) { ?>
-    <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Cargando...</span>
+    <div class="container-fluid p-0">
+        <div class="bg-primary" style="height: 5px;">
+
         </div>
     </div>
-
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-        <a href="<?= $url ?>" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <img class="logofisi" src="<?= $url ?>src/img/default/fisi.png" alt="">
-            <p class="m-0 d-flex flex-column">
-                <span style="color: #974C7E; font-size: 22px; font-weight: 800; margin-bottom:-5px; padding:0px">UNIDAD DE POSGRADO</span>
-                <span style="font-size: 13px; color: #9d9c9c">Facultad de Ingeniería de Sistemas e Informática</span>
-            </p>
-        </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="<?= $url ?>" class="nav-item nav-link active">Inicio</a>
-                <a href="<?= $url ?>about" class="nav-item nav-link">Nosotros</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Maestrias</a>
-                    <div class="dropdown-menu fade-down m-0 p-0 rounded-0">
-                        <a href="<?= $url ?>course-1" class="dropdown-item p-2 text-success text-uppercase">Ciencias en TI</a>
-                    </div>
-                </div>
-                <a href="<?= $url ?>contact" class="nav-item nav-link">Contáctenos</a>
-                <a href="<?= $url ?>login" class="btn btn-primary fw-bold rounded-0 py-4 px-lg-5 d-none d-lg-block"><i class="fa-solid fa-right-from-bracket me-3"></i>POSGRADO</a>
+    <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary bg-white" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
+        <div class="container-fluid">
+            <div class="col-md-3 mb-2 mb-md-0">
+                <a class="navbar-brand d-flex" href="<?= $url ?>">
+                    <img src="<?= $url ?>src/img/default/fisi.png" class="logo">
+                </a>
+            </div>
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="<?=$url?>" class="nav-link px-2 link-secondary">Inicio</a></li>
+                <li><a href="<?=$url?>courses" class="nav-link px-2">Cursos</a></li>
+                <li><a href="<?=$url?>about" class="nav-link px-2">Nosotros</a></li>
+                <li><a href="#contact" class="nav-link px-2">Más Información</a></li>
+            </ul>
+            <div class="col-md-3 text-end">
+                <a href="<?=$url?>login" class="btn btn-outline-primary me-2">Ingresar</a>
+                <button type="button" class="btn btn-primary"><i class="fa fa-bars"></i></button>
             </div>
         </div>
     </nav>

@@ -40,7 +40,6 @@
         <!--Page-->
         <script src="<?= $url ?>src/js/admin/code.js"></script>
         <script src="<?= $url ?>src/js/admin/form.js"></script>
-        <script src="<?= $url ?>src/js/public/code.js"></script>
 
 
 

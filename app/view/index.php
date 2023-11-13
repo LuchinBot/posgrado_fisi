@@ -13,8 +13,7 @@ $page = 2;
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="<?= $url ?>public/view/admin">Inicio</a></li>
-            <li class="breadcrumb-item active">Null</li>
+            <li class="breadcrumb-item"><a href="<?= $url ?>app/view">Inicio</a></li>
           </ol>
         </div>
       </div>
@@ -24,7 +23,7 @@ $page = 2;
   <!-- Main content -->
   <section class="content">
     <div class="container-fluid">
-      <p class="text-secondary">Bienvenido al sistema principal de la Oficina de Gestión de la Calidad de la Universidad Nacional de San Martín.</p>
+      <p class="text-secondary">Bienvenido al sistema principal de la Unidad de Posgrado de la Facultad de Ingeniería de Sistemas e Informática.</p>
     </div>
   </section>
 </div>

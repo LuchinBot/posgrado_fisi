@@ -22,6 +22,28 @@
             $(document).ready(function() {
                 $("#validateForm").validate({});
             });
+
+            function soloNumeros(event) {
+                var charCode = event.charCode;
+
+                // Verificar si el código de carácter corresponde a un número (0-9)
+                if (charCode < 48 || charCode > 57) {
+                    // No es un número, evitar que se escriba en el input
+                    return false;
+                }
+
+                // Es un número, permitir la entrada
+                return true;
+            }
+            $(window).on('load', function() {
+                setTimeout(function() {
+                    $(".loader-page").css({
+                        visibility: "hidden",
+                        opacity: "0"
+                    })
+                }, 2000);
+
+            });
         </script>
 
     <?php }
@@ -90,14 +112,14 @@
             });
 
             $(window).on('load', function() {
-                    setTimeout(function() {
-                        $(".loader-page").css({
-                            visibility: "hidden",
-                            opacity: "0"
-                        })
-                    }, 2000);
+                setTimeout(function() {
+                    $(".loader-page").css({
+                        visibility: "hidden",
+                        opacity: "0"
+                    })
+                }, 2000);
 
-                });
+            });
         </script>
     <?php } ?>
     </body>

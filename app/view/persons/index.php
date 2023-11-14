@@ -16,7 +16,7 @@ if (isset($_POST['add'])) {
         $imagen = "../../../src/img/uploads/" . $_FILES['photo']['name'];
         $h = "src/img/uploads/" . $_FILES['photo']['name'];
         move_uploaded_file($_FILES['photo']['tmp_name'], $imagen);
-        $stmt = $base->prepare('CALL sp_insertar_persona(?,?,?,?,?,?,?,?)');
+        $stmt = $base->prepare('CALL addPersons(?,?,?,?,?,?,?,?)');
         $persons = $stmt->execute(array($a, $b, $c, $d, $e, $f, $g, $h));
         if ($persons) {
             echo '<script type="text/javascript">window.location="' . $url . 'app/view/persons";</script>';
@@ -24,6 +24,7 @@ if (isset($_POST['add'])) {
     }
 }
 if (isset($_POST['edit'])) {
+    $id = $_POST['idpersons'];
     $a = $_POST['firstname'];
     $b = $_POST['lastname'];
     $c = $_POST['dni'];
@@ -37,14 +38,14 @@ if (isset($_POST['edit'])) {
         $imagen = "../../../src/img/uploads/" . $_FILES['photo']['name'];
         $h = "src/img/uploads/" . $_FILES['photo']['name'];
         move_uploaded_file($_FILES['photo']['tmp_name'], $imagen);
-        $stmt = $base->prepare('CALL sp_insertar_persona(?,?,?,?,?,?,?,?)');
-        $persons = $stmt->execute(array($a, $b, $c, $d, $e, $f, $g, $h));
+        $stmt = $base->prepare('CALL editPersons(?,?,?,?,?,?,?,?)');
+        $persons = $stmt->execute(array($a, $b, $c, $d, $e, $f, $g, $h, $id));
         if ($persons) {
             echo '<script type="text/javascript">window.location="' . $url . 'app/view/persons";</script>';
         }
     } else {
-        $stmt = $base->prepare('CALL sp_insertar_persona(?,?,?,?,?,?,?,?)');
-        $persons = $stmt->execute(array($a, $b, $c, $d, $e, $f, $g, $h));
+        $stmt = $base->prepare('CALL editPersons(?,?,?,?,?,?,?,?)');
+        $persons = $stmt->execute(array($a, $b, $c, $d, $e, $f, $g, $h, $id));
         if ($persons) {
             echo '<script type="text/javascript">window.location="' . $url . 'app/view/persons";</script>';
         }
@@ -68,7 +69,7 @@ $persons = $stmt->fetchAll(PDO::FETCH_OBJ);
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?= $url ?>public/view/admin/">Inicio</a></li>
+                        <li class="breadcrumb-item"><a href="<?= $url ?>app/view/">Inicio</a></li>
                         <li class="breadcrumb-item active"><?= $title_page ?></li>
                     </ol>
                 </div>

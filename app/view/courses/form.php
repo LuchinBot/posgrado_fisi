@@ -5,66 +5,55 @@ require('../../layouts/database/connection.php');
 if (isset($_GET['id'])) {
 
     //Listado
-    $stmt = $base->prepare('SELECT * from persons where idpersons = ?');
+    $stmt = $base->prepare('SELECT * from courses where idcourses = ?');
     $data = $stmt->execute(array($_GET['id']));
     $data = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    //categories
+    $stmt = $base->prepare('SELECT * from categories where state_categories = 1');
+    $categories = $stmt->execute();
+    $categories = $stmt->fetch(PDO::FETCH_ASSOC);
+
 
 ?>
-    <form class="" method="post" enctype="multipart/form-data">
+    <form class="" method="post">
         <div class="modal-body">
-            <input class="form-control" name="idpersons" type="text" value="<?= $data['idpersons'] ?>" hidden>
-            <input class="form-control" name="photo_origin" type="text" value="<?= $data['photo_persons'] ?>" hidden>
+            <input class="form-control" name="idcourses" type="text" value="<?= $data['idcourses'] ?>" hidden>
+            <div class="form-group">
+                <label>Categoria</label>
+                <select class="select2" name="idcategories" style="width: 100%;" required title="Campo requerido">
+                    <?php foreach ($categories as $i) :
+                        if ($i->idcategories == $data['idcategories']) { ?>
+                            <option selected="<?= $i->idcategories ?>"><?= $i->name_categories ?></option>
+                        <?php } else { ?>
+                            <option value="<?= $i->idcategories ?>"><?= $i->name_categories ?></option>
+                    <?php }
+                    endforeach; ?>
+                </select>
+            </div>
+
             <div class="row">
                 <div class="col-6 form-group">
-                    <label>Nombres</label>
-                    <input type="text" name="firstname" class="form-control" value="<?= $data['firstname_persons'] ?>" required title="Campo requerido">
+                    <label>Nombre del curso</label>
+                    <input type="text" name="name" class="form-control" required title="Campo requerido">
                 </div>
                 <div class="col-6 form-group">
-                    <label>Apellidos</label>
-                    <input type="text" name="lastname" class="form-control" value="<?= $data['lastname_persons'] ?>" required title="Campo requerido">
+                    <label>Descripcion del curso</label>
+                    <input type="text" name="text" class="form-control" required title="Campo requerido">
                 </div>
             </div>
             <div class="row">
-                <div class="col-6 form-group">
-                    <label>N° Documento de Identidad</label>
-                    <input type="text" name="dni" class="form-control" value="<?= $data['dni_persons'] ?>" required title="Campo requerido">
+                <div class="col-4 form-group">
+                    <label>Fecha de inicio</label>
+                    <input type="datetime-local" name="date" class="form-control" required title="Campo requerido">
                 </div>
-                <div class="col-6 form-group">
-                    <label>Celular</label>
-                    <input type="text" name="phone" class="form-control" value="<?= $data['phone_persons'] ?>" required title="Campo requerido">
+                <div class="col-4 form-group">
+                    <label>Créditos</label>
+                    <input type="number" name="credits" class="form-control" required title="Campo requerido">
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-6 form-group">
-                    <label>Dirección</label>
-                    <input type="text" name="address" class="form-control" value="<?= $data['address_persons'] ?>" required title="Campo requerido">
-                </div>
-                <div class="col-6 form-group">
-                    <div class="mb-3">
-                        <label for="formFile2" class="form-label">Foto</label>
-                        <input class="form-control" accept="image/*" name="photo" type="file" id="formFile2" title="Campo requerido, debe contener un foto de buena calidad">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6 form-group">
-                    <label>Sexo</label>
-                    <select class="select2" name="sex" style="width: 100%;" required title="Campo requerido">
-                    <option selected value="<?=$data['sex_persons']?>"><?=$data['sex_persons']?></option>
-                    <option value="femenino">Femenino</option>
-                    <option value="masculino">masculino</option>
-                    </select>
-                </div>
-                <div class="col-6 form-group">
-                    <label>Grado</label>
-                    <select class="select2" name="grade" style="width: 100%;" required title="Campo requerido">
-                        <option value="estudiante">Estudiante</option>
-                        <option value="bachiller">Bachiller</option>
-                        <option value="licenciado">Licenciado</option>
-                        <option value="ingeniero">Ingeniero</option>
-                        <option value="doctor">Doctor</option>
-                    </select>
+                <div class="col-4 form-group">
+                    <label>Precio</label>
+                    <input type="number" name="price" class="form-control" required title="Campo requerido">
                 </div>
             </div>
         </div>

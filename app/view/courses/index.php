@@ -1,61 +1,46 @@
 <?php
-$title_page = "Equipo";
+$title_page = "Cursos";
 $page = 2;
 
 include "../../layouts/header.php";
 
 if (isset($_POST['add'])) {
-    $a = $_POST['firstname'];
-    $b = $_POST['lastname'];
-    $c = $_POST['dni'];
-    $d = $_POST['phone'];
-    $e = $_POST['grade'];
-    $f = $_POST['sex'];
-    $g = $_POST['address'];
-    if ($_FILES['photo']['name'] != "") {
-        $imagen = "../../../src/img/uploads/" . $_FILES['photo']['name'];
-        $h = "src/img/uploads/" . $_FILES['photo']['name'];
-        move_uploaded_file($_FILES['photo']['tmp_name'], $imagen);
-        $stmt = $base->prepare('CALL sp_insertar_persona(?,?,?,?,?,?,?,?)');
-        $persons = $stmt->execute(array($a, $b, $c, $d, $e, $f, $g, $h));
-        if ($persons) {
-            echo '<script type="text/javascript">window.location="' . $url . 'app/view/persons";</script>';
-        }
+    $a = $_POST['idcategories'];
+    $b = $_POST['name'];
+    $c = $_POST['text'];
+    $d = $_POST['date'];
+    $e = $_POST['credits'];
+    $f = $_POST['price'];
+
+    $stmt = $base->prepare('CALL addcourses(?,?,?,?,?,?)');
+    $courses = $stmt->execute(array($a, $b, $c, $d, $e, $f));
+    if ($courses) {
+        echo '<script type="text/javascript">window.location="' . $url . 'app/view/courses";</script>';
     }
 }
 if (isset($_POST['edit'])) {
-    $a = $_POST['firstname'];
-    $b = $_POST['lastname'];
-    $c = $_POST['dni'];
-    $d = $_POST['phone'];
-    $e = $_POST['grade'];
-    $f = $_POST['sex'];
-    $g = $_POST['address'];
-    $h = $_POST['photo_origin'];
+    $id = $_POST['idcourses'];
+    $a = $_POST['idcategories'];
+    $b = $_POST['name'];
+    $c = $_POST['text'];
+    $d = $_POST['date'];
+    $e = $_POST['credits'];
+    $f = $_POST['price'];
 
-    if ($_FILES['photo']['name'] != "") {
-        $imagen = "../../../src/img/uploads/" . $_FILES['photo']['name'];
-        $h = "src/img/uploads/" . $_FILES['photo']['name'];
-        move_uploaded_file($_FILES['photo']['tmp_name'], $imagen);
-        $stmt = $base->prepare('CALL sp_insertar_persona(?,?,?,?,?,?,?,?)');
-        $persons = $stmt->execute(array($a, $b, $c, $d, $e, $f, $g, $h));
-        if ($persons) {
-            echo '<script type="text/javascript">window.location="' . $url . 'app/view/persons";</script>';
-        }
-    } else {
-        $stmt = $base->prepare('CALL sp_insertar_persona(?,?,?,?,?,?,?,?)');
-        $persons = $stmt->execute(array($a, $b, $c, $d, $e, $f, $g, $h));
-        if ($persons) {
-            echo '<script type="text/javascript">window.location="' . $url . 'app/view/persons";</script>';
-        }
+    $stmt = $base->prepare('CALL editcourses(?,?,?,?,?,?)');
+    $courses = $stmt->execute(array($a, $b, $c, $d, $e, $f,$id));
+    if ($courses) {
+        echo '<script type="text/javascript">window.location="' . $url . 'app/view/courses";</script>';
     }
 }
 
+$stmt = $base->prepare('CALL listcourses()');
+$courses = $stmt->execute();
+$courses = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-
-$stmt = $base->prepare('CALL listPersons()');
-$persons = $stmt->execute();
-$persons = $stmt->fetchAll(PDO::FETCH_OBJ);
+$stmt = $base->prepare('CALL listCategories()');
+$categories = $stmt->execute();
+$categories = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 ?>
 <div class="content-wrapper">
@@ -68,7 +53,7 @@ $persons = $stmt->fetchAll(PDO::FETCH_OBJ);
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?= $url ?>public/view/admin/">Inicio</a></li>
+                        <li class="breadcrumb-item"><a href="<?= $url ?>app/view/">Inicio</a></li>
                         <li class="breadcrumb-item active"><?= $title_page ?></li>
                     </ol>
                 </div>
@@ -98,23 +83,21 @@ $persons = $stmt->fetchAll(PDO::FETCH_OBJ);
                         <thead>
                             <tr>
                                 <th class="text-center">#</th>
-                                <th class="text-center">Foto</th>
-                                <th>DNI</th>
-                                <th>Nombres y apellidos</th>
+                                <th>Nombre del curso</th>
+                                <th>Categoría</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $count = 1;
-                            foreach ($persons as $i) : ?>
+                            foreach ($courses as $i) : ?>
                                 <tr>
                                     <td class="text-center"><?= $count ?></td>
-                                    <td class="text-center img-table"><img src="<?= $url . $i->photo_persons ?>" style="width:40px; height:40px; border-radius:50px"></td>
-                                    <td><?= $i->dni_persons ?></td>
-                                    <td><?= $i->firstname_persons . ' ' . $i->lastname_persons ?></td>
+                                    <td><?= $i->name_courses ?></td>
+                                    <td><?= $i->name_categories ?></td>
                                     <td>
-                                        <button type="button" class="btn btn-primary btn-id" data-bs-toggle="modal" data-bs-target="#ModalEdit" id="<?= $i->idpersons  ?>"><i class="fa-solid fa-pen-to-square"></i></button>
-                                        <a href="update?idHide=<?= $i->idpersons ?>" class="btn text-white bg-warning"><i class="fa-solid fa-eye"></i></a>
+                                        <button type="button" class="btn btn-primary btn-id" data-bs-toggle="modal" data-bs-target="#ModalEdit" id="<?= $i->idcourses  ?>"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <a href="update?idHide=<?= $i->idcourses ?>" class="btn text-white bg-danger"><i class="fa-solid fa-trash"></i></a>
                                     </td>
                                 </tr>
                             <?php $count++;
@@ -125,55 +108,36 @@ $persons = $stmt->fetchAll(PDO::FETCH_OBJ);
                 <div class="collapse" id="collapseNew">
                     <form method="post" id="validateForm" enctype="multipart/form-data">
                         <fieldset>
-                            <div class="row">
-                                <div class="col-6 form-group">
-                                    <label>Nombres</label>
-                                    <input type="text" name="firstname" class="form-control" placeholder="" required title="Campo requerido">
-                                </div>
-                                <div class="col-6 form-group">
-                                    <label>Apellidos</label>
-                                    <input type="text" name="lastname" class="form-control" placeholder="" required title="Campo requerido">
-                                </div>
+                            <div class="form-group">
+                                <label>Categoria</label>
+                                <select class="select2" name="idcategories" style="width: 100%;" required title="Campo requerido">
+                                    <?php foreach ($categories as $i) : ?>
+                                        <option value="<?= $i->idcategories ?>"><?= $i->name_categories ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                             <div class="row">
                                 <div class="col-6 form-group">
-                                    <label>N° Documento de Identidad</label>
-                                    <input type="text" name="dni" class="form-control" placeholder="" required title="Campo requerido">
+                                    <label>Nombre del curso</label>
+                                    <input type="text" name="name" class="form-control" required title="Campo requerido">
                                 </div>
                                 <div class="col-6 form-group">
-                                    <label>Celular</label>
-                                    <input type="text" name="phone" class="form-control" placeholder="" required title="Campo requerido">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6 form-group">
-                                    <label>Dirección</label>
-                                    <input type="text" name="address" class="form-control" placeholder="" required title="Campo requerido">
-                                </div>
-                                <div class="col-6 form-group">
-                                    <div class="mb-3">
-                                        <label for="formFile2" class="form-label">Foto</label>
-                                        <input class="form-control" accept="image/*" name="photo" type="file" id="formFile2" required title="Campo requerido, debe contener un foto de buena calidad">
-                                    </div>
+                                    <label>Descripcion del curso</label>
+                                    <input type="text" name="text" class="form-control" required title="Campo requerido">
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-6 form-group">
-                                    <label>Sexo</label>
-                                    <select class="select2" name="sex" style="width: 100%;" required title="Campo requerido">
-                                        <option value="femenino">Femenino</option>
-                                        <option value="masculino">Maculino</option>
-                                    </select>
+                                <div class="col-4 form-group">
+                                    <label>Fecha de inicio</label>
+                                    <input type="datetime-local" name="date" class="form-control" required title="Campo requerido">
                                 </div>
-                                <div class="col-6 form-group">
-                                    <label>Grado</label>
-                                    <select class="select2" name="grade" style="width: 100%;" required title="Campo requerido">
-                                        <option value="estudiante">Estudiante</option>
-                                        <option value="bachiller">Bachiller</option>
-                                        <option value="licenciado">Licenciado</option>
-                                        <option value="ingeniero">Ingeniero</option>
-                                        <option value="doctor">Doctor</option>
-                                    </select>
+                                <div class="col-4 form-group">
+                                    <label>Créditos</label>
+                                    <input type="number" name="credits" class="form-control" required title="Campo requerido">
+                                </div>
+                                <div class="col-4 form-group">
+                                    <label>Precio</label>
+                                    <input type="number" name="price" class="form-control" required title="Campo requerido">
                                 </div>
                             </div>
                             <button type="submit" name="add" class="btn btn-success px-3 fw-bolder"><i class="fa-solid fa-rotate me-1"></i> Actualizar <?= $title_page ?></button>

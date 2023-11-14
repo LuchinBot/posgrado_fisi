@@ -33,7 +33,7 @@ if (isset($_POST['update'])) {
   $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
   if ($result) {
-    echo '<script type="text/javascript">window.location="' . $url . 'public/view/admin/datos";</script>';
+    echo '<script type="text/javascript">window.location="' . $url . 'app/view/datos";</script>';
   }
 }
 
@@ -53,7 +53,7 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="<?= $url ?>public/view/admin/">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="<?= $url ?>app/view/">Inicio</a></li>
             <li class="breadcrumb-item active"><?= $title_page ?></li>
           </ol>
         </div>

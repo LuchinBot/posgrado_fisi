@@ -97,7 +97,7 @@ if ($page == 2) { ?>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?= $url ?>app/view/team" class="nav-link">
+                                    <a href="<?= $url ?>app/view/teams" class="nav-link">
                                         <i class="fa fa-id-card nav-icon"></i>
                                         <p>Personal</p>
                                     </a>
@@ -106,6 +106,12 @@ if ($page == 2) { ?>
                                     <a href="<?= $url ?>app/view/courses" class="nav-link">
                                         <i class="fa-solid fa-graduation-cap nav-icon"></i>
                                         <p>Cursos</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= $url ?>app/view/contact" class="nav-link">
+                                        <i class="fa-solid fa-graduation-cap nav-icon"></i>
+                                        <p>Contáctos</p>
                                     </a>
                                 </li>
                             </ul>

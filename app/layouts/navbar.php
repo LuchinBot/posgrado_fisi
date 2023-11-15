@@ -17,9 +17,9 @@
                 <li><a href="<?= $url ?>about" class="nav-link px-2">Nosotros</a></li>
                 <li><a href="#contact" class="nav-link px-2">Más Información</a></li>
             </ul>
-            <div class="col-md-3 text-end">
+            <div class="col-md-3 d-flex justify-content-end">
                 <a href="<?= $url ?>login" class="btn btn-outline-primary me-2">Ingresar</a>
-                <button type="button" class="btn btn-primary collapse-navbar"><i class="fa fa-bars"></i></button>
+                <button type="button" class="btn btn-primary collapse-navbar" style="display: none;"><i class="fa fa-bars" ></i></button>
             </div>
         </div>
         <div class="border-top navbar-mobile" style="display: none;">
@@ -59,7 +59,7 @@ if ($page == 2) { ?>
     <aside class="main-sidebar bg-dark elevation-4 p-0">
         <!-- Brand Logo -->
         <a href="<?= $url ?>app/view" class="brand-link border-bottom bg-white">
-            <img src="<?= $url ?>src/img/default/logo.png" alt="OGC Logo" style="opacity: .8; width:100px">
+            <img src="<?= $url ?>src/img/default/logo.png" alt="UPG Logo" style="opacity: .8; width:200px">
         </a>
 
         <!-- Sidebar -->

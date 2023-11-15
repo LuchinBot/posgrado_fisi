@@ -35,7 +35,7 @@ if (isset($_GET['id'])) {
             </div>
             <div class="form-group">
                 <label>Nombres y apellidos</label>
-                <textarea name="message_contact" readonly class="form-control"><?= $data['message_contact'] ?></textarea>
+                <textarea name="message_contact" readonly class="form-control" rows="5"><?= $data['message_contact'] ?></textarea>
             </div>
 
 

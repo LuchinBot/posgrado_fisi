@@ -10,7 +10,7 @@ if (isset($_POST['add'])) {
     $c = $_POST['username'];
     $d = $_POST['keyword'];
 
-    $stmt = $base->prepare('CALL addUser(?,?,?,?)');
+    $stmt = $base->prepare('CALL addUsers(?,?,?,?)');
     $users = $stmt->execute(array($a, $b, $c, $d));
     if ($users) {
         echo '<script type="text/javascript">window.location="' . $url . 'app/view/users";</script>';
@@ -23,10 +23,18 @@ if (isset($_POST['edit'])) {
     $c = $_POST['username'];
     $d = $_POST['keyword'];
 
-    $stmt = $base->prepare('CALL editUsers(?,?,?,?)');
-    $users = $stmt->execute(array($a, $b, $c, $d, $id));
-    if ($users) {
-        echo '<script type="text/javascript">window.location="' . $url . 'app/view/users";</script>';
+    if ($d != "") {
+        $stmt = $base->prepare('CALL editUsers(?,?,?,?,?)');
+        $users = $stmt->execute(array($id,$a, $b, $c, $d));
+        if ($users) {
+            echo '<script type="text/javascript">window.location="' . $url . 'app/view/users";</script>';
+        }
+    }else{
+        $stmt = $base->prepare('UPDATE users SET idprofiles = ?, idpersons = ?, user = ? WHERE idusers = ?');
+        $users = $stmt->execute(array($a, $b, $c, $id));
+        if ($users) {
+            echo '<script type="text/javascript">window.location="' . $url . 'app/view/users";</script>';
+        }
     }
 }
 
@@ -93,7 +101,7 @@ $profiles = $stmt->fetchAll(PDO::FETCH_OBJ);
                             foreach ($users as $i) : ?>
                                 <tr>
                                     <td class="text-center"><?= $count ?></td>
-                                    <td><?= $i->username ?></td>
+                                    <td><?= $i->user ?></td>
                                     <td><?= $i->name_profiles ?></td>
                                     <td>
                                         <button type="button" class="btn btn-primary btn-id" data-bs-toggle="modal" data-bs-target="#ModalEdit" id="<?= $i->idusers  ?>"><i class="fa-solid fa-pen-to-square"></i></button>
@@ -113,7 +121,7 @@ $profiles = $stmt->fetchAll(PDO::FETCH_OBJ);
                                     <label>Persona</label>
                                     <select class="select2" name="idpersons" style="width: 100%;" required title="Campo requerido">
                                         <?php foreach ($persons as $i) : ?>
-                                            <option value="<?= $i->idpersons ?>"><?= $i->firstame_persons . ' ' . $i->lastame_persons ?></option>
+                                            <option value="<?= $i->idpersons ?>"><?= $i->firstname_persons . ' ' . $i->lastname_persons ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>

@@ -18,13 +18,13 @@ if ($page == 2) {
   } else {
 
     $stm = $base->prepare('SELECT * FROM users as u
-    inner join profiles as p on(p.idprofiles = u.idprofiles) WHERE u.idusers = ?');
+    inner join profiles as p on(p.idprofiles = u.idprofiles) inner join persons as pn on (pn.idpersons = u.idpersons) WHERE u.idusers = ?');
     $userData = $stm->execute(array($_SESSION['user_id']));
     $userData = $stm->fetch(PDO::FETCH_ASSOC);
 
-    $firstName = explode(" ", $userData['firstname']);
+    $firstName = explode(" ", $userData['firstname_persons']);
     $firstName = $firstName[0];
-    $lastName = explode(" ", $userData['lastname']);
+    $lastName = explode(" ", $userData['lastname_persons']);
     $lastName = $lastName[0];
 
     $fullName = $firstName . ' ' . $lastName;

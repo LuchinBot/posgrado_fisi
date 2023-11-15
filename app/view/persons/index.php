@@ -38,14 +38,14 @@ if (isset($_POST['edit'])) {
         $imagen = "../../../src/img/uploads/" . $_FILES['photo']['name'];
         $h = "src/img/uploads/" . $_FILES['photo']['name'];
         move_uploaded_file($_FILES['photo']['tmp_name'], $imagen);
-        $stmt = $base->prepare('CALL editPersons(?,?,?,?,?,?,?,?)');
-        $persons = $stmt->execute(array($a, $b, $c, $d, $e, $f, $g, $h, $id));
+        $stmt = $base->prepare('CALL editPersons(?,?,?,?,?,?,?,?,?)');
+        $persons = $stmt->execute(array($id,$a, $b, $c, $d, $e, $f, $g, $h));
         if ($persons) {
             echo '<script type="text/javascript">window.location="' . $url . 'app/view/persons";</script>';
         }
     } else {
-        $stmt = $base->prepare('CALL editPersons(?,?,?,?,?,?,?,?)');
-        $persons = $stmt->execute(array($a, $b, $c, $d, $e, $f, $g, $h, $id));
+        $stmt = $base->prepare('CALL editPersons(?,?,?,?,?,?,?,?,?)');
+        $persons = $stmt->execute(array($id,$a, $b, $c, $d, $e, $f, $g, $h));
         if ($persons) {
             echo '<script type="text/javascript">window.location="' . $url . 'app/view/persons";</script>';
         }

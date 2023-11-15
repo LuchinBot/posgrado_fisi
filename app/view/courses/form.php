@@ -12,7 +12,7 @@ if (isset($_GET['id'])) {
     //categories
     $stmt = $base->prepare('SELECT * from categories where state_categories = 1');
     $categories = $stmt->execute();
-    $categories = $stmt->fetch(PDO::FETCH_ASSOC);
+    $categories = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 
 ?>
@@ -24,7 +24,7 @@ if (isset($_GET['id'])) {
                 <select class="select2" name="idcategories" style="width: 100%;" required title="Campo requerido">
                     <?php foreach ($categories as $i) :
                         if ($i->idcategories == $data['idcategories']) { ?>
-                            <option selected="<?= $i->idcategories ?>"><?= $i->name_categories ?></option>
+                            <option selected value="<?= $i->idcategories ?>"><?= $i->name_categories ?></option>
                         <?php } else { ?>
                             <option value="<?= $i->idcategories ?>"><?= $i->name_categories ?></option>
                     <?php }
@@ -35,25 +35,25 @@ if (isset($_GET['id'])) {
             <div class="row">
                 <div class="col-6 form-group">
                     <label>Nombre del curso</label>
-                    <input type="text" name="name" class="form-control" required title="Campo requerido">
+                    <input type="text" name="name" class="form-control" value="<?= $data['name_courses'] ?>" required title="Campo requerido">
                 </div>
                 <div class="col-6 form-group">
                     <label>Descripcion del curso</label>
-                    <input type="text" name="text" class="form-control" required title="Campo requerido">
+                    <input type="text" name="text" class="form-control" value="<?= $data['text_courses'] ?>" required title="Campo requerido">
                 </div>
             </div>
             <div class="row">
                 <div class="col-4 form-group">
                     <label>Fecha de inicio</label>
-                    <input type="datetime-local" name="date" class="form-control" required title="Campo requerido">
+                    <input type="date" name="date" class="form-control" value="<?= $data['date_courses'] ?>" required title="Campo requerido">
                 </div>
                 <div class="col-4 form-group">
                     <label>Créditos</label>
-                    <input type="number" name="credits" class="form-control" required title="Campo requerido">
+                    <input type="number" name="credits" class="form-control" value="<?= $data['credits_courses'] ?>" required title="Campo requerido">
                 </div>
                 <div class="col-4 form-group">
                     <label>Precio</label>
-                    <input type="number" name="price" class="form-control" required title="Campo requerido">
+                    <input type="number" name="price" class="form-control" value="<?= $data['price_courses'] ?>" required title="Campo requerido">
                 </div>
             </div>
         </div>

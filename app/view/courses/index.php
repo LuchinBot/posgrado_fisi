@@ -27,8 +27,8 @@ if (isset($_POST['edit'])) {
     $e = $_POST['credits'];
     $f = $_POST['price'];
 
-    $stmt = $base->prepare('CALL editcourses(?,?,?,?,?,?)');
-    $courses = $stmt->execute(array($a, $b, $c, $d, $e, $f,$id));
+    $stmt = $base->prepare('CALL editCourses(?,?,?,?,?,?,?)');
+    $courses = $stmt->execute(array($id,$a, $b, $c, $d, $e, $f));
     if ($courses) {
         echo '<script type="text/javascript">window.location="' . $url . 'app/view/courses";</script>';
     }
@@ -129,7 +129,7 @@ $categories = $stmt->fetchAll(PDO::FETCH_OBJ);
                             <div class="row">
                                 <div class="col-4 form-group">
                                     <label>Fecha de inicio</label>
-                                    <input type="datetime-local" name="date" class="form-control" required title="Campo requerido">
+                                    <input type="date" name="date" class="form-control" required title="Campo requerido">
                                 </div>
                                 <div class="col-4 form-group">
                                     <label>Créditos</label>

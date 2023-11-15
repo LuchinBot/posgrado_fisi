@@ -51,14 +51,15 @@ if (isset($_GET['id'])) {
                 <div class="col-6 form-group">
                     <label>Sexo</label>
                     <select class="select2" name="sex" style="width: 100%;" required title="Campo requerido">
-                    <option selected value="<?=$data['sex_persons']?>"><?=$data['sex_persons']?></option>
-                    <option value="femenino">Femenino</option>
-                    <option value="masculino">masculino</option>
+                        <option selected value="<?= $data['sex_persons'] ?>"><?= $data['sex_persons'] ?></option>
+                        <option value="femenino">Femenino</option>
+                        <option value="masculino">masculino</option>
                     </select>
                 </div>
                 <div class="col-6 form-group">
                     <label>Grado</label>
                     <select class="select2" name="grade" style="width: 100%;" required title="Campo requerido">
+                        <option selected value="<?= $data['grade_persons'] ?>"><?= $data['grade_persons'] ?></option>
                         <option value="estudiante">Estudiante</option>
                         <option value="bachiller">Bachiller</option>
                         <option value="licenciado">Licenciado</option>

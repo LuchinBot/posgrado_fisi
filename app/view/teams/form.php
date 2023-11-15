@@ -12,11 +12,11 @@ if (isset($_GET['id'])) {
     //persons
     $stmt = $base->prepare('SELECT * from persons where state_persons = 1');
     $persons = $stmt->execute();
-    $persons = $stmt->fetch(PDO::FETCH_ASSOC);
+    $persons = $stmt->fetchAll(PDO::FETCH_OBJ);
     //jobs
     $stmt = $base->prepare('SELECT * from jobs where state_jobs = 1');
     $jobs = $stmt->execute();
-    $jobs = $stmt->fetch(PDO::FETCH_ASSOC);
+    $jobs = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 ?>
     <form class="" method="post">
@@ -28,9 +28,9 @@ if (isset($_GET['id'])) {
                     <select class="select2" name="idpersons" style="width: 100%;" required title="Campo requerido">
                         <?php foreach ($persons as $i) :
                             if ($i->idpersons == $data['idpersons']) { ?>
-                                <option selected="<?= $i->idpersons ?>"><?= $i->firstname . ' ' . $i->lastname ?></option>
+                                <option selected value="<?= $i->idpersons ?>"><?= $i->firstname_persons . ' ' . $i->lastname_persons ?></option>
                             <?php } else { ?>
-                                <option value="<?= $i->idpersons ?>"><?= $i->firstname . ' ' . $i->lastname ?></option>
+                                <option value="<?= $i->idpersons ?>"><?= $i->firstname_persons . ' ' . $i->lastname_persons ?></option>
                         <?php }
                         endforeach; ?>
                     </select>
@@ -40,7 +40,7 @@ if (isset($_GET['id'])) {
                     <select class="select2" name="idjobs" style="width: 100%;" require title="Campo requerido">
                         <?php foreach ($jobs as $i) :
                             if ($i->idjobs == $data['idjobs']) { ?>
-                                <option selected="<?= $i->idjobs ?>"><?= $i->name_jobs ?></option>
+                                <option selected value="<?= $i->idjobs ?>"><?= $i->name_jobs ?></option>
                             <?php } else { ?>
                                 <option value="<?= $i->idjobs ?>"><?= $i->name_jobs ?></option>
                         <?php }
@@ -51,15 +51,15 @@ if (isset($_GET['id'])) {
 
             <div class="form-group">
                 <label>Facebook</label>
-                <input type="url" name="facebook_teams" class="form-control" placeholder="" required value="<?= $data['facebook_teams'] ?>" title="Campo requerido">
+                <input type="url" name="facebook" class="form-control" placeholder="" required value="<?= $data['facebook_teams'] ?>" title="Campo requerido">
             </div>
             <div class="form-group">
                 <label>email</label>
-                <input type="url" name="email_teams" class="form-control" placeholder="" required value="<?= $data['email_teams'] ?>" title="Campo requerido">
+                <input type="email" name="email" class="form-control" placeholder="" required value="<?= $data['email_teams'] ?>" title="Campo requerido">
             </div>
             <div class="form-group">
                 <label>linkedin</label>
-                <input type="url" name="linkedin_teams" class="form-control" placeholder="" required value="<?= $data['linkedin_teams'] ?>" title="Campo requerido">
+                <input type="url" name="linkedin" class="form-control" placeholder="" required value="<?= $data['linkedin_teams'] ?>" title="Campo requerido">
             </div>
         </div>
         <div class="modal-footer">

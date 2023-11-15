@@ -1,5 +1,5 @@
 <?php
-$title_page = "Usuarios";
+$title_page = "Equipo";
 $page = 2;
 
 include "../../layouts/header.php";
@@ -26,7 +26,7 @@ if (isset($_POST['edit'])) {
     $e = $_POST['linkedin'];
 
     $stmt = $base->prepare('CALL editTeams(?,?,?,?,?,?)');
-    $teams = $stmt->execute(array($a, $b, $c, $d,$e,$id));
+    $teams = $stmt->execute(array($id, $a, $b, $c, $d,$e));
     if ($teams) {
         echo '<script type="text/javascript">window.location="' . $url . 'app/view/teams";</script>';
     }
@@ -95,8 +95,8 @@ $jobs = $stmt->fetchAll(PDO::FETCH_OBJ);
                             foreach ($teams as $i) : ?>
                                 <tr>
                                     <td class="text-center"><?= $count ?></td>
-                                    <td><?= $i->firstname . ' ' . $i->lastname ?></td>
-                                    <td><?= $i->carge ?></td>
+                                    <td><?= $i->firstname_persons . ' ' . $i->lastname_persons ?></td>
+                                    <td><?= $i->name_jobs ?></td>
                                     <td>
                                         <button type="button" class="btn btn-primary btn-id" data-bs-toggle="modal" data-bs-target="#ModalEdit" id="<?= $i->idteams  ?>"><i class="fa-solid fa-pen-to-square"></i></button>
                                         <a href="update?idHide=<?= $i->idteams ?>" class="btn text-white bg-danger"><i class="fa-solid fa-trash"></i></a>
@@ -115,7 +115,7 @@ $jobs = $stmt->fetchAll(PDO::FETCH_OBJ);
                                     <label>Persona</label>
                                     <select class="select2" name="idpersons" style="width: 100%;" required title="Campo requerido">
                                         <?php foreach ($persons as $i) : ?>
-                                            <option value="<?= $i->idpersons ?>"><?= $i->firstame_persons . ' ' . $i->lastame_persons ?></option>
+                                            <option value="<?= $i->idpersons ?>"><?= $i->firstname_persons . ' ' . $i->lastname_persons ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -131,15 +131,15 @@ $jobs = $stmt->fetchAll(PDO::FETCH_OBJ);
 
                             <div class="form-group">
                                 <label>Facebook</label>
-                                <input type="url" name="facebook_teams" class="form-control" placeholder="" required title="Campo requerido">
+                                <input type="url" name="facebook" class="form-control" placeholder="" required title="Campo requerido">
                             </div>
                             <div class="form-group">
                                 <label>email</label>
-                                <input type="url" name="email_teams" class="form-control" placeholder="" required title="Campo requerido">
+                                <input type="email" name="email" class="form-control" placeholder="" required title="Campo requerido">
                             </div>
                             <div class="form-group">
                                 <label>linkedin</label>
-                                <input type="url" name="linkedin_teams" class="form-control" placeholder="" required title="Campo requerido">
+                                <input type="url" name="linkedin" class="form-control" placeholder="" required title="Campo requerido">
                             </div>
                             <button type="submit" name="add" class="btn btn-success px-3 fw-bolder"><i class="fa-solid fa-rotate me-1"></i> Actualizar <?= $title_page ?></button>
                         </fieldset>

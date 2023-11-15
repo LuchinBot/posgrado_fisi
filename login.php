@@ -4,6 +4,10 @@ $title_page = 'Loguearse';
 include('app/layouts/header.php');
 session_start();
 
+if (isset($_SESSION['user_id'])) {
+  echo '<script type="text/javascript">window.location="' . $url . 'app/view";</script>';
+}
+
 if (isset($_POST['login'])) {
     $user = $_POST['email'];
     $pass = $_POST['password'];
@@ -17,8 +21,14 @@ if (isset($_POST['login'])) {
     if (password_verify($pass, $usuario['keyword'])) {
         $_SESSION['user_id'] = $usuario["idusers"];
         $_SESSION['user_profile'] = $usuario["idprofiles"];
-        echo '<script type="text/javascript">window.location="' . $url . 'app/view/";</script>';
-    } else {
+
+        //Guardar sesion
+        $query = $base->prepare('INSERT INTO sessions(idusers,date_sessions) values(?,?)');
+        $session = $query->execute(array( $usuario["idusers"],$dateTimeLocal));
+        if($session){
+            echo '<script type="text/javascript">window.location="' . $url . 'app/view/";</script>';
+        }
+        } else {
         $_SESSION['intentos'] = isset($_SESSION['intentos']) ? $_SESSION['intentos'] + 1 : 1;
     }
 }

@@ -12,6 +12,7 @@
 
     /*Slider*/
     .slider {
+        height: auto !important;
         text-align: center;
         padding-top: 10px !important;
     }
@@ -32,6 +33,9 @@
 
     .slider a {
         margin-bottom: 30px;
+    }
+    .collapse-navbar{
+        display: flex !important;
     }
 
     /*Other*/

@@ -17,7 +17,6 @@ if (isset($_POST['login'])) {
     $sentencia->bindValue(':user', $user);
     $sentencia->execute();
     $usuario = $sentencia->fetch(PDO::FETCH_ASSOC);
-
     if (password_verify($pass, $usuario['keyword'])) {
         $_SESSION['user_id'] = $usuario["idusers"];
         $_SESSION['user_profile'] = $usuario["idprofiles"];

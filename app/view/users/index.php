@@ -9,7 +9,8 @@ if (isset($_POST['add'])) {
     $b = $_POST['idpersons'];
     $c = $_POST['username'];
     $d = $_POST['keyword'];
-
+    //agregacion de la encriptacion
+    $d = password_hash($d, PASSWORD_DEFAULT);
     $stmt = $base->prepare('CALL addUsers(?,?,?,?)');
     $users = $stmt->execute(array($a, $b, $c, $d));
     if ($users) {
@@ -24,6 +25,8 @@ if (isset($_POST['edit'])) {
     $d = $_POST['keyword'];
 
     if ($d != "") {
+          //agregacion de la encriptacion
+        $d = password_hash($d, PASSWORD_DEFAULT);
         $stmt = $base->prepare('CALL editUsers(?,?,?,?,?)');
         $users = $stmt->execute(array($id,$a, $b, $c, $d));
         if ($users) {

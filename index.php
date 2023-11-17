@@ -42,36 +42,38 @@ if($slider1){
             <div class="col-lg-4 col-sm-4 p-3">
                 <div class="service-item d-flex text-justify pt-3">
                     <div class="float-item">
-                        <i class="fa fa-3x fa-graduation-cap"></i>
+                    <i class="fa-solid fa-2x fa-microchip"></i>
                     </div>
                     <div class="p-3">
                         <h6 class="mb-3 fw-bold text-uppercase">Mayor Desarrollo Profesional</h6>
                         <p>La Unidad de Posgrado de la Facultad de Ingenieria de Sistemas e Informatica, brinda
-                            programas de maestrías, licenciadas por Sunedu con Resolución N° N° 055-2019-SUNEDU/CD.</p>
+                            programas de maestrías, licenciadas por Sunedu con Resolución N° 055-2019-SUNEDU/CD.</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-4 p-3">
                 <div class="service-item d-flex text-justify pt-3">
                     <div class="float-item">
-                        <i class="fa fa-3x fa-graduation-cap"></i>
+                        <i class="fa-solid fa-2x fa-house-laptop"></i>
                     </div>
                     <div class="p-3">
-                        <h6 class="mb-3 fw-bold text-uppercase">Mayor Desarrollo Profesional</h6>
-                        <p>La Unidad de Posgrado de la Facultad de Ingenieria de Sistemas e Informatica, brinda
-                            programas de maestrías, licenciadas por Sunedu con Resolución N° N° 055-2019-SUNEDU/CD.</p>
+                        <h6 class="mb-3 fw-bold text-uppercase">Metodología Híbrida</h6>
+                        <p>Esta modalidad combina la presencia física y remota de los estudiantes en una misma sesión,
+                            lo que les brinda una mayor flexibilidad para elegir la modalidad que mejor se adapte a sus
+                            necesidades profesionales y personales.</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-4 p-3">
                 <div class="service-item d-flex text-justify pt-3">
                     <div class="float-item">
-                        <i class="fa fa-3x fa-graduation-cap"></i>
+                        <i class="fa fa-2x fa-graduation-cap"></i>
                     </div>
                     <div class="p-3">
-                        <h6 class="mb-3 fw-bold text-uppercase">Mayor Desarrollo Profesional</h6>
-                        <p>La Unidad de Posgrado de la Facultad de Ingenieria de Sistemas e Informatica, brinda
-                            programas de maestrías, licenciadas por Sunedu con Resolución N° N° 055-2019-SUNEDU/CD.</p>
+                        <h6 class="mb-3 fw-bold text-uppercase">Perfil del Egresado</h6>
+                        <p>Egresados con profundos conocimientos en Ciencia de la Computación, desarrollo de sistemas y
+                            especializado en investigaciones de tecnología educativa en el campo de las Tecnologías de
+                            la Información y Comunicación.</p>
                     </div>
                 </div>
             </div>

@@ -140,8 +140,8 @@ $profiles = $stmt->fetchAll(PDO::FETCH_OBJ);
 
                             <div class="row">
                                 <div class="col-6 form-group">
-                                    <label>Usuario</label>
-                                    <input type="text" name="username" class="form-control" placeholder="" required title="Campo requerido">
+                                    <label>Correo</label>
+                                    <input type="email" name="username" class="form-control" placeholder="" required title="Campo requerido">
                                 </div>
                                 <div class="col-6 form-group">
                                     <label>Contraseña</label>

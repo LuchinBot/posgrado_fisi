@@ -19,7 +19,7 @@
             </ul>
             <div class="col-md-3 d-flex justify-content-end">
                 <a href="<?= $url ?>login" class="btn btn-outline-primary me-2">Ingresar</a>
-                <button type="button" class="btn btn-primary collapse-navbar" style="display: none;"><i class="fa fa-bars" ></i></button>
+                <button type="button" class="btn btn-primary collapse-navbar" style="display: none;"><i class="fa fa-bars"></i></button>
             </div>
         </div>
         <div class="border-top navbar-mobile" style="display: none;">
@@ -141,7 +141,35 @@ if ($page == 2) { ?>
                         </li>
                     <?php } ?>
                     <?php if ($userData['idprofiles'] == 2) { ?>
-
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">
+                                <i class="nav-icon fa-solid fa-globe"></i>
+                                <p style="font-weight: 400;" class="">
+                                    Página web
+                                    <i class="right fa fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?= $url ?>app/view/teams" class="nav-link">
+                                        <i class="fa fa-id-card nav-icon"></i>
+                                        <p>Personal</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= $url ?>app/view/courses" class="nav-link">
+                                        <i class="fa-solid fa-graduation-cap nav-icon"></i>
+                                        <p>Cursos</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= $url ?>app/view/contact" class="nav-link">
+                                        <i class="fa-solid fa-graduation-cap nav-icon"></i>
+                                        <p>Contáctos</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     <?php } ?>
                 </ul>
             </nav>

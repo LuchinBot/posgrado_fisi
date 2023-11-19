@@ -8,7 +8,8 @@
         <div class="container-fluid">
             <div class="col-md-3 mb-2 mb-md-0">
                 <a class="navbar-brand d-flex" href="<?= $url ?>">
-                    <img src="<?= $url ?>src/img/default/logo.png" class="logo">
+                    <img src="<?= $url ?>src/img/default/logo-v3.png" class="logo">
+                    <img src="<?= $url ?>src/img/default/logo.png" class="logo-fisi" style="display: none;">
                 </a>
             </div>
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 ul-navbar">
@@ -19,6 +20,7 @@
             </ul>
             <div class="col-md-3 d-flex justify-content-end">
                 <a href="<?= $url ?>login" class="btn btn-outline-primary me-2">Ingresar</a>
+                <a href="https://iposgrado.unsm.edu.pe/login" target="_blank" class="btn btn-success text me-2">Intranet</a>
                 <button type="button" class="btn btn-primary collapse-navbar" style="display: none;"><i class="fa fa-bars"></i></button>
             </div>
         </div>

@@ -72,6 +72,10 @@ button:focus {
 .logo {
     height: 50px;
 }
+.logo-fisi{
+    height: 50px;
+}
+
 
 .error {
     font-style: italic;

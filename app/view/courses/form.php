@@ -16,7 +16,7 @@ if (isset($_GET['id'])) {
 
 
 ?>
-    <form class="" method="post">
+    <form class="" method="post" enctype="multipart/form-data">
         <div class="modal-body">
             <input class="form-control" name="idcourses" type="text" value="<?= $data['idcourses'] ?>" hidden>
             <div class="form-group">
@@ -35,11 +35,11 @@ if (isset($_GET['id'])) {
             <div class="row">
                 <div class="col-6 form-group">
                     <label>Nombre del curso</label>
-                    <input type="text" name="name" class="form-control" value="<?= $data['name_courses'] ?>" required title="Campo requerido">
+                    <input type="text" name="name"  maxlength="255"  class="form-control" value="<?= $data['name_courses'] ?>" required title="Campo requerido">
                 </div>
                 <div class="col-6 form-group">
                     <label>Descripcion del curso</label>
-                    <input type="text" name="text" class="form-control" value="<?= $data['text_courses'] ?>" required title="Campo requerido">
+                    <input type="text" name="text"  maxlength="255"  class="form-control" value="<?= $data['text_courses'] ?>" required title="Campo requerido">
                 </div>
             </div>
             <div class="row">
@@ -49,12 +49,24 @@ if (isset($_GET['id'])) {
                 </div>
                 <div class="col-4 form-group">
                     <label>Créditos</label>
-                    <input type="number" name="credits" class="form-control" value="<?= $data['credits_courses'] ?>" required title="Campo requerido">
+                    <input type="number"  name="credits" class="form-control" value="<?= $data['credits_courses'] ?>" required min="1" title="Campo requerido">
                 </div>
                 <div class="col-4 form-group">
                     <label>Precio</label>
-                    <input type="number" name="price" class="form-control" value="<?= $data['price_courses'] ?>" required title="Campo requerido">
+                    <input type="number"  name="price" class="form-control" value="<?= $data['price_courses'] ?>" required min="1" title="Campo requerido">
                 </div>
+            </div>
+            <div class=" form-group">
+                <label>Presentación del curso</label>
+                <textarea name="presentation" class="form-control" required title="Campo requerido"><?= $data['presentation_courses'] ?></textarea>
+            </div>
+            <div class=" form-group">
+                <label>Objetivos del curso</label>
+                <textarea name="objetives" id="summernote2" class="form-control" required title="Campo requerido"><?= $data['objetives_courses'] ?></textarea>
+            </div>
+            <div class=" form-group">
+                <label>Archivo PDF</label>
+                <input class="form-control" accept="application/pdf" name="pdf" type="file" title="Campo requerido, debe contener un pdf">
             </div>
         </div>
         <div class="modal-footer">
@@ -64,11 +76,26 @@ if (isset($_GET['id'])) {
     </form>
 
 <?php } ?>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="<?= $url ?>src/plugins/select2/select2.min.js"></script>
+<script src="<?= $url ?>src/plugins/summernote/summernote-bs4.min.js"></script>
+
 
 <script>
     $(document).ready(function() {
         $('.select2').select2();
+        $('#summernote2').summernote({
+            placeholder: 'Escribe aquí la descripción de la noticia...',
+            height: 400,
+            toolbar: [
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol']],
+                ['insert', ['link']],
+                ['view', ['fullscreen', 'codeview']]
+            ]
+        });
+
 
     });
 </script>
+<script src="<?= $url ?>src/plugins/summernote/summernote-bs4.min.js"></script>

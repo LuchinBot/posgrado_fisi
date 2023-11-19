@@ -98,13 +98,11 @@
                     placeholder: 'Escribe aquí la descripción de la noticia...',
                     height: 400,
                     toolbar: [
-                        ['style', ['style']],
                         ['font', ['bold', 'underline', 'clear']],
                         ['color', ['color']],
-                        ['para', ['ul', 'ol', 'paragraph']],
-                        ['table', ['table']],
+                        ['para', ['ul', 'ol']],
                         ['insert', ['link']],
-                        ['view', ['fullscreen', 'codeview', 'help']]
+                        ['view', ['fullscreen', 'codeview']]
                     ]
                 });
 

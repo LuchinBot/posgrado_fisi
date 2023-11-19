@@ -8,11 +8,9 @@ $url = "http://localhost/posgrado_fisi/";
 $dateTime = new DateTime();
 $dateTime->setTimezone(new DateTimeZone('America/Lima'));
 $dateTimeLocal = $dateTime->format("Y-m-d H:i:s");
+session_start();
 
 if ($page == 2) {
-
-  session_start();
-
   if (!isset($_SESSION['user_id'])) {
     echo '<script type="text/javascript">window.location="' . $url . 'login";</script>';
   } else {

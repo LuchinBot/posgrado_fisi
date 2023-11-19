@@ -5,6 +5,10 @@ body {
     padding: 0;
     font-size: 12px !important;
 }
+.error{
+    color: #ef0202 !important;
+    font-weight: 400 !important;
+}
 
 p {
     font-weight: 300 !important;

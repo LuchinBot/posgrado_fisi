@@ -187,7 +187,7 @@ $persons = $stmt->fetchAll(PDO::FETCH_OBJ);
 </div>
 
 <!--Modales-->
-<div class="modal fade" id="ModalEdit" tabindex="-1" aria-labelledby="ModalEdit" aria-hidden="true">
+<div class="modal fade" id="ModalEdit" aria-labelledby="ModalEdit" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">

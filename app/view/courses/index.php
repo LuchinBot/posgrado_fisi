@@ -8,12 +8,18 @@ if (isset($_POST['add'])) {
     $a = $_POST['idcategories'];
     $b = $_POST['name'];
     $c = $_POST['text'];
-    $d = $_POST['date'];
-    $e = $_POST['credits'];
-    $f = $_POST['price'];
+    $d = $_POST['presentation'];
+    $e = $_POST['objetives'];
+    $g = $_POST['date'];
+    $h = $_POST['credits'];
+    $i = $_POST['price'];
 
-    $stmt = $base->prepare('CALL addcourses(?,?,?,?,?,?)');
-    $courses = $stmt->execute(array($a, $b, $c, $d, $e, $f));
+    $imagen = "../../../src/pdf/uploads/" . $_FILES['pdf']['name'];
+    $f = "src/pdf/uploads/" . $_FILES['pdf']['name'];
+    move_uploaded_file($_FILES['pdf']['tmp_name'], $imagen);
+
+    $stmt = $base->prepare('CALL addcourses(?,?,?,?,?,?,?,?,?)');
+    $courses = $stmt->execute(array($a, $b, $c, $d, $e, $f, $g, $h, $i));
     if ($courses) {
         echo '<script type="text/javascript">window.location="' . $url . 'app/view/courses";</script>';
     }
@@ -23,12 +29,27 @@ if (isset($_POST['edit'])) {
     $a = $_POST['idcategories'];
     $b = $_POST['name'];
     $c = $_POST['text'];
-    $d = $_POST['date'];
-    $e = $_POST['credits'];
-    $f = $_POST['price'];
+    $d = $_POST['presentation'];
+    $e = $_POST['objetives'];
+    $g = $_POST['date'];
+    $h = $_POST['credits'];
+    $i = $_POST['price'];
 
-    $stmt = $base->prepare('CALL editCourses(?,?,?,?,?,?,?)');
-    $courses = $stmt->execute(array($id,$a, $b, $c, $d, $e, $f));
+    if ($_FILES['pdf']['name'] != "") {
+        $imagen = "../../../src/pdf/uploads/" . $_FILES['pdf']['name'];
+        $f = "src/pdf/uploads/" . $_FILES['pdf']['name'];
+        move_uploaded_file($_FILES['pdf']['tmp_name'], $imagen);
+
+        $stmt = $base->prepare('CALL editCourses(?,?,?,?,?,?,?,?,?,?)');
+        $courses = $stmt->execute(array($id,$a, $b, $c, $d, $e, $f, $g, $h, $i));
+
+    }else{
+        $stmt = $base->prepare('UPDATE `courses` SET idcategories=?, name_courses=?, text_courses=?, presentation_courses=?, objetives_courses=?,
+        date_courses=?, credits_courses=?, price_courses=? WHERE idcourses=?;');
+        $courses = $stmt->execute(array($a, $b, $c, $d, $e, $g, $h, $i,$id));
+      
+    }
+
     if ($courses) {
         echo '<script type="text/javascript">window.location="' . $url . 'app/view/courses";</script>';
     }
@@ -119,11 +140,11 @@ $categories = $stmt->fetchAll(PDO::FETCH_OBJ);
                             <div class="row">
                                 <div class="col-6 form-group">
                                     <label>Nombre del curso</label>
-                                    <input type="text" name="name" class="form-control" required title="Campo requerido">
+                                    <input type="text"  maxlength="255" name="name" class="form-control" required title="Campo requerido">
                                 </div>
                                 <div class="col-6 form-group">
                                     <label>Descripcion del curso</label>
-                                    <input type="text" name="text" class="form-control" required title="Campo requerido">
+                                    <input type="text" maxlength="255" name="text" class="form-control" required title="Campo requerido">
                                 </div>
                             </div>
                             <div class="row">
@@ -140,6 +161,18 @@ $categories = $stmt->fetchAll(PDO::FETCH_OBJ);
                                     <input type="number" name="price" class="form-control" required title="Campo requerido">
                                 </div>
                             </div>
+                            <div class=" form-group">
+                                <label>Presentación del curso</label>
+                                <textarea name="presentation"  class="form-control" required title="Campo requerido"></textarea>
+                            </div>
+                            <div class=" form-group">
+                                <label>Presentación del curso</label>
+                                <textarea name="objetives" id="summernote" class="form-control" required title="Campo requerido"></textarea>
+                            </div>
+                            <div class=" form-group">
+                                <label>Archivo PDF</label>
+                                <input class="form-control" accept="application/pdf" name="pdf" type="file" required title="Campo requerido, debe contener un pdf">
+                            </div>
                             <button type="submit" name="add" class="btn btn-success px-3 fw-bolder"><i class="fa-solid fa-rotate me-1"></i> Actualizar <?= $title_page ?></button>
                         </fieldset>
                     </form>
@@ -150,8 +183,8 @@ $categories = $stmt->fetchAll(PDO::FETCH_OBJ);
 </div>
 
 <!--Modales-->
-<div class="modal fade" id="ModalEdit" tabindex="-1" aria-labelledby="ModalEdit" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+<div class="modal fade" id="ModalEdit" aria-labelledby="ModalEdit" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Editar <?= $title_page ?></h5>

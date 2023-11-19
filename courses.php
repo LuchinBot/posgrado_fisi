@@ -38,7 +38,7 @@ $courses = $stmt->fetchAll(PDO::FETCH_OBJ);
                 <?php if ($i->idcategories == 2) { ?>
                     <div class="col-lg-4 col-sm-4 p-3">
                         <div class="d-flex text-justify">
-                            <a href="" class="p-3 bg-white rounded course-item" style="z-index: 1000;">
+                            <a href="course?view=<?=$i->idcourses?>&name=<?=$i->name_courses?>" class="p-3 bg-white rounded course-item" style="z-index: 1000;">
                                 <h6 class="mb-3 fw-bold text-center text-uppercase"><?= $i->name_courses ?></h6>
                                 <p class="text-center text-secondary">
                                     <?= $i->text_courses ?>
@@ -72,7 +72,7 @@ $courses = $stmt->fetchAll(PDO::FETCH_OBJ);
                 <?php if ($i->idcategories == 1) { ?>
                     <div class="col-lg-4 col-sm-4 p-3">
                         <div class="d-flex text-justify">
-                            <div class="p-3 bg-white rounded course-item" style="z-index: 1000;">
+                            <a href="course?view=<?=$i->idcourses?>&name=<?=$i->name_courses?>" class="p-3 bg-white rounded course-item" style="z-index: 1000;">
                                 <h6 class="mb-3 fw-bold text-center text-uppercase">Mayor Desarrollo Profesional</h6>
                                 <p class="text-center text-secondary">
                                     Una de las mejores carreras
@@ -91,7 +91,7 @@ $courses = $stmt->fetchAll(PDO::FETCH_OBJ);
                                         <strong>3000 Soles</strong>
                                     </span>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 <?php } ?>

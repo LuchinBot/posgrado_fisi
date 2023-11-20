@@ -33,7 +33,7 @@ $teams = $stmt->fetchAll(PDO::FETCH_OBJ);
         <div class="row justify-content-center mt-5">
             <?php foreach ($teams as $i) : ?>
                 <div class="col-md-4 about" style="margin-bottom: 4rem !important;">
-                    <div class="about-photo" style="background-image: url(<?= $url.$i->photo_persons ?>);">
+                    <div class="about-photo" style="background-image: url('<?= $url.$i->photo_persons ?>');">
                     </div>
                     <div class="float-about-name">
                         <p class="m-0 p-0"> <strong><?=$i->name_jobs?></strong><br><?= $i->firstname_persons.' '.$i->lastname_persons ?></p>

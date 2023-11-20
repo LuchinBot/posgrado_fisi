@@ -32,11 +32,11 @@ $teams = $stmt->fetchAll(PDO::FETCH_OBJ);
         <h1 class="fw-bold text-center">Nuestro Equipo</h1>
         <div class="row justify-content-center mt-5">
             <?php foreach ($teams as $i) : ?>
-                <div class="col-md-4 mb-4 about">
-                    <div class="about-photo" style="background-image: url(<?= $ur.$i->photo_persons ?>);">
+                <div class="col-md-4 mb-5 about">
+                    <div class="about-photo" style="background-image: url(<?= $url.$i->photo_persons ?>);">
                     </div>
                     <div class="float-about-name">
-                        <p class="m-0 p-0"> <strong><?=$i->name_jobs?></strong><br><?= $ur.$i->firstname_persons.' '.$lastname_persons ?></p>
+                        <p class="m-0 p-0"> <strong><?=$i->name_jobs?></strong><br><?= $i->firstname_persons.' '.$lastname_persons ?></p>
                     </div>
                     <div class="float-about-link">
                         <a href="<?=$i->facebook_teams?>" target="_blank"><i class="fa-brands fa-facebook"></i></a>

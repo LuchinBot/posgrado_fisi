@@ -1,8 +1,8 @@
 <?php
 
-$description = "Bienvenido a la Unidad de Posgrado de la Facultad de Ingeniería de Sistemas e Informática. Descubre nuestros programas académicos y conoce a nuestros autores destacados.";
-$keywords = "Unidad de Posgrado, Ingeniería de Sistemas, Informática";
-$author = "Luis José Hidalgo Rodríguez y Brayan Ruiz Marreros";
+$description = "Welcome";
+$keywords = "Skeleton of web application";
+$author = "Luis José Hidalgo Rodríguez";
 
 
 echo '<meta name="author" content="' . $author . '">' . PHP_EOL;

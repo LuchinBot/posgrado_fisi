@@ -5,6 +5,9 @@ ini_set('display_errors', 1);
 require('database/connection.php');
 $url = "http://localhost/posgrado_fisi/";
 
+$dateTime = new DateTime();
+$dateTime->setTimezone(new DateTimeZone('America/Lima'));
+$dateTimeLocal = $dateTime->format("Y-m-d H:i:s");
 
 if ($page == 2) {
   if (!isset($_SESSION['user_id'])) {

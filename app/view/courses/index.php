@@ -6,6 +6,7 @@ include "../../layouts/header.php";
 
 if (isset($_POST['add'])) {
     $a = $_POST['idcategories'];
+    $x = $_POST['idtypes'];
     $b = $_POST['name'];
     $c = $_POST['text'];
     $d = $_POST['presentation'];
@@ -18,8 +19,8 @@ if (isset($_POST['add'])) {
     $f = "src/pdf/uploads/" . $_FILES['pdf']['name'];
     move_uploaded_file($_FILES['pdf']['tmp_name'], $imagen);
 
-    $stmt = $base->prepare('CALL addcourses(?,?,?,?,?,?,?,?,?)');
-    $courses = $stmt->execute(array($a, $b, $c, $d, $e, $f, $g, $h, $i));
+    $stmt = $base->prepare('CALL addcourses(?,?,?,?,?,?,?,?,?,?)');
+    $courses = $stmt->execute(array($a,$x, $b, $c, $d, $e, $f, $g, $h, $i));
     if ($courses) {
         echo '<script type="text/javascript">window.location="' . $url . 'app/view/courses";</script>';
     }
@@ -27,6 +28,7 @@ if (isset($_POST['add'])) {
 if (isset($_POST['edit'])) {
     $id = $_POST['idcourses'];
     $a = $_POST['idcategories'];
+    $x = $_POST['idtypes'];
     $b = $_POST['name'];
     $c = $_POST['text'];
     $d = $_POST['presentation'];
@@ -40,14 +42,12 @@ if (isset($_POST['edit'])) {
         $f = "src/pdf/uploads/" . $_FILES['pdf']['name'];
         move_uploaded_file($_FILES['pdf']['tmp_name'], $imagen);
 
-        $stmt = $base->prepare('CALL editCourses(?,?,?,?,?,?,?,?,?,?)');
-        $courses = $stmt->execute(array($id,$a, $b, $c, $d, $e, $f, $g, $h, $i));
-
-    }else{
-        $stmt = $base->prepare('UPDATE `courses` SET idcategories=?, name_courses=?, text_courses=?, presentation_courses=?, objetives_courses=?,
+        $stmt = $base->prepare('CALL editCourses(?,?,?,?,?,?,?,?,?,?,?)');
+        $courses = $stmt->execute(array($id, $a, $x, $b, $c, $d, $e, $f, $g, $h, $i));
+    } else {
+        $stmt = $base->prepare('UPDATE `courses` SET idcategories=?, idtypes=?, name_courses=?, text_courses=?, presentation_courses=?, objetives_courses=?,
         date_courses=?, credits_courses=?, price_courses=? WHERE idcourses=?;');
-        $courses = $stmt->execute(array($a, $b, $c, $d, $e, $g, $h, $i,$id));
-      
+        $courses = $stmt->execute(array($a, $x, $b, $c, $d, $e, $g, $h, $i, $id));
     }
 
     if ($courses) {
@@ -62,6 +62,11 @@ $courses = $stmt->fetchAll(PDO::FETCH_OBJ);
 $stmt = $base->prepare('CALL listCategories()');
 $categories = $stmt->execute();
 $categories = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+
+$stmt = $base->prepare('SELECT * from types where state_types = 1');
+$types = $stmt->execute();
+$types = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 ?>
 <div class="content-wrapper">
@@ -129,18 +134,28 @@ $categories = $stmt->fetchAll(PDO::FETCH_OBJ);
                 <div class="collapse" id="collapseNew">
                     <form method="post" id="validateForm" enctype="multipart/form-data">
                         <fieldset>
-                            <div class="form-group">
-                                <label>Categoria</label>
-                                <select class="select2" name="idcategories" style="width: 100%;" required title="Campo requerido">
-                                    <?php foreach ($categories as $i) : ?>
-                                        <option value="<?= $i->idcategories ?>"><?= $i->name_categories ?></option>
-                                    <?php endforeach; ?>
-                                </select>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Categoria</label>
+                                    <select class="select2" name="idcategories" style="width: 100%;" required title="Campo requerido">
+                                        <?php foreach ($categories as $i) : ?>
+                                            <option value="<?= $i->idcategories ?>"><?= $i->name_categories ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Tipo</label>
+                                    <select class="select2" name="idtypes" style="width: 100%;" required title="Campo requerido">
+                                        <?php foreach ($types as $i) : ?>
+                                            <option value="<?= $i->idtypes ?>"><?= $i->name_types ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-6 form-group">
                                     <label>Nombre del curso</label>
-                                    <input type="text"  maxlength="255" name="name" class="form-control" required title="Campo requerido">
+                                    <input type="text" maxlength="255" name="name" class="form-control" required title="Campo requerido">
                                 </div>
                                 <div class="col-6 form-group">
                                     <label>Descripcion del curso</label>
@@ -163,7 +178,7 @@ $categories = $stmt->fetchAll(PDO::FETCH_OBJ);
                             </div>
                             <div class=" form-group">
                                 <label>Presentación del curso</label>
-                                <textarea name="presentation"  class="form-control" required title="Campo requerido"></textarea>
+                                <textarea name="presentation" class="form-control" required title="Campo requerido"></textarea>
                             </div>
                             <div class=" form-group">
                                 <label>Presentación del curso</label>

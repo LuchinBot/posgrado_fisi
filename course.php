@@ -5,7 +5,8 @@ if (isset($_GET['view'])) {
     $title_page = $_GET['name'];
     include('app/layouts/header.php');
 
-    $stmt = $base->prepare('SELECT * FROM courses as c INNER JOIN categories as ca on(ca.idcategories=c.idcategories) WHERE c.idcourses= ? ');
+    $stmt = $base->prepare('SELECT * FROM courses as c INNER JOIN categories as ca on(ca.idcategories=c.idcategories)
+    INNER JOIN types as ty on(ty.idtypes=c.idtypes) WHERE c.idcourses= ? ');
     $course = $stmt->execute(array($_GET['view']));
     $course = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -47,7 +48,10 @@ if (isset($_GET['view'])) {
                 <div class="col-md-6">
                     <h3>Presentación</h3>
                     <hr>
-                    <p class="text-success fw-bolder"><i class="fa-solid fa-medal"></i> Licenciada por SUNEDU</p>
+                    <div class="d-flex">
+                        <p class="text-success fw-bolder me-3"><i class="fa-solid fa-medal"></i> Licenciada por SUNEDU</p>
+                        <p class="text-success fw-bolder"><i class="fa-solid fa-house-laptop"></i> <?=$course['name_types']?></p>
+                    </div>
                     <p style="text-align: justify;"><?= $course['presentation_courses'] ?></p>
                 </div>
                 <div class="col-md-6">

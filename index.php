@@ -3,19 +3,6 @@
 $page = 1;
 $title_page = 'Inicio - UPG FISI';
 include('app/layouts/header.php');
-/*
-//Consultas
-$stmt = $base->prepare('SELECT * from carousel where state_carousel = 1 order by idcarousel asc limit 1');
-$slider1 = $stmt->execute();
-$slider1 = $stmt->fetch(PDO::FETCH_ASSOC);
-if($slider1){
-    $idcarousel = $slider1['idcarousel'];
-
-    $stmt = $base->prepare('SELECT * from carousel where state_carousel = 1 AND idcarousel != ? ');
-    $slider2 = $stmt->execute(array($idcarousel));
-    $slider2 = $stmt->fetchAll(PDO::FETCH_OBJ);
-}*/
-
 
 ?>
 <section class="h-100 mb-3">
@@ -23,9 +10,9 @@ if($slider1){
         <div class="slider">
             <div class="container px-5 h-100 d-flex justify-content-center align-items-center">
                 <div class="col-md-6">
-                    <h1 class="text-dark mb-3 fw-bold">¡Hola!, Bienvenido</h1>
+                    <h1 class="text-dark mb-3 fw-bold">¡Impulsa tu Carrera, Eleva tus Metas!</h1>
                     <p class="text-secondary mb-5">
-                        Estamos transformando mentes y creando innovadores. ¡Descubre el futuro en la Unidad de Posgrado de la Facultad de Ingeniería de Sistemas e Informática!
+                        Estamos transformando mentes y creando innovadores. ¡Descubre el futuro profesional en la Unidad de Posgrado de la Facultad de Ingeniería de Sistemas e Informática!
                     </p>
                     <a href="<?= $url ?>courses" class="btn bg-primary text-white fs-4 fw-bold px-4">Explorar cursos</a>
                 </div>
@@ -46,7 +33,7 @@ if($slider1){
                     </div>
                     <div class="p-3">
                         <h6 class="mb-3 fw-bold text-uppercase">Mayor Desarrollo Profesional</h6>
-                        <p>La Unidad de Posgrado de la Facultad de Ingenieria de Sistemas e Informatica, brinda
+                        <p style="text-align: justify">La Unidad de Posgrado de la Facultad de Ingenieria de Sistemas e Informatica, brinda
                             programas de maestrías, licenciadas por Sunedu con Resolución N° 055-2019-SUNEDU/CD.</p>
                     </div>
                 </div>
@@ -58,7 +45,7 @@ if($slider1){
                     </div>
                     <div class="p-3">
                         <h6 class="mb-3 fw-bold text-uppercase">Metodología Híbrida</h6>
-                        <p>Esta modalidad combina la presencia física y remota de los estudiantes en una misma sesión,
+                        <p style="text-align: justify">Esta modalidad combina la presencia física y remota de los estudiantes en una misma sesión,
                             lo que les brinda una mayor flexibilidad para elegir la modalidad que mejor se adapte a sus
                             necesidades profesionales y personales.</p>
                     </div>
@@ -71,7 +58,7 @@ if($slider1){
                     </div>
                     <div class="p-3">
                         <h6 class="mb-3 fw-bold text-uppercase">Perfil del Egresado</h6>
-                        <p>Egresados con profundos conocimientos en Ciencia de la Computación, desarrollo de sistemas y
+                        <p style="text-align: justify">Egresados con profundos conocimientos en Ciencia de la Computación, desarrollo de sistemas y
                             especializado en investigaciones de tecnología educativa en el campo de las Tecnologías de
                             la Información y Comunicación.</p>
                     </div>
@@ -88,16 +75,16 @@ if($slider1){
                 <div class="row mt-4">
                     <div class="col-md-4 pe-5">
                         <div class="mb-3">
-                            <label for="inputname" class="form-label text-white">Nombres y apellidos</label>
-                            <input type="text" name="fullname" title="Este campo es requerido" class="form-control contact-input" required id="inputname" placeholder="Luis José Hidalgo">
+                            <label for="inputname" class="form-label text-white">Nombres y Apellidos</label>
+                            <input type="text" name="fullname" title="Este campo es requerido" class="form-control contact-input" required id="inputname" ">
                         </div>
                         <div class="mb-3">
                             <label for="inputphone" class="form-label text-white">Celular</label>
-                            <input type="text" name="phone" title="Este campo es requerido" minlength="9" maxlength="9" required onkeypress="return soloNumeros(event)" class="form-control contact-input" id="inputphone" placeholder="932059359">
+                            <input type="text" name="phone" title="Este campo es requerido" minlength="9" maxlength="9" required onkeypress="return soloNumeros(event)" class="form-control contact-input" id="inputphone">
                         </div>
                         <div class="mb-3">
                             <label for="inputemail" class="form-label text-white">Correo electrónico</label>
-                            <input type="email" name="email" title="Este campo es requerido" class="form-control contact-input" required id="inputemail" placeholder="micorreo@gmail.com">
+                            <input type="email" name="email" title="Este campo es requerido" class="form-control contact-input" required id="inputemail">
                         </div>
                     </div>
                     <div class="col-md-4">

@@ -40,13 +40,13 @@ if (isset($_POST['login'])) {
         </div>
         <div class="col-md-3 p-4 login">
             <h3 class="text-primary fw-bold mt-3">Inicie sesión</h3>
-            <p class="text-secondary mb-0" style="font-size: 10px; line-height: 1.4 !important">Complete sus credenciales correctamente. Si no lo recuerda, comunícate con este número: +51 930 227 604</p>
+            <p class="text-secondary mb-0" style="font-size: 10px; line-height: 1.4 !important">Complete sus credenciales correctamente. Si no lo recuerda, comunícate con este número: +51 945 261 227</p>
             <form method="post" id="validateForm">
                 <fieldset>
                     <?php if ($_SESSION['intentos'] >= 5) { ?>
                         <div class="mt-3">
                             <p class="text-danger fw-bold"><i class="fa-solid fa-face-frown"></i> Su cuenta a sido bloqueada</p>
-                            <span class="fst-italic">Soporte 1: +51 930 227 604</span> <br>
+                            <span class="fst-italic">Soporte 1: +51 945 261 227</span> <br>
                             <span class="fst-italic">Soporte 2: +51 932 059 359</span> 
                         </div>
                     <?php } else { ?>

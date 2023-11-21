@@ -48,18 +48,23 @@ if (isset($_GET['view'])) {
                     <h3>Presentación</h3>
                     <hr>
                     <p class="text-success fw-bolder"><i class="fa-solid fa-medal"></i> Licenciada por SUNEDU</p>
-                    <p><?= $course['presentation_courses'] ?></p>
+                    <p style="text-align: justify;"><?= $course['presentation_courses'] ?></p>
                 </div>
                 <div class="col-md-6">
                     <h3>Objetivos</h3>
                     <hr>
-                    <p style="word-break: break-all;"><?= $course['objetives_courses'] ?></p>
+                    <p style="word-break: break-all; text-align:justify"><?= $course['objetives_courses'] ?></p>
                 </div>
             </div>
-            <div class="row  px-5">
+            <div class="row px-5">
                 <h3>Información adicional</h3>
                 <hr>
                 <embed src="<?= $url . $course['pdf_courses'] ?>#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="600px" />
+                <div class="mt-3">
+                    <a href="<?= $url . $course['pdf_courses'] ?>" download>
+                        <button class="btn btn-primary">Descargar PDF</button>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -72,15 +77,15 @@ if (isset($_GET['view'])) {
                         <div class="col-md-4 pe-5">
                             <div class="mb-3">
                                 <label for="inputname" class="form-label text-white">Nombres y apellidos</label>
-                                <input type="text" name="fullname" title="Este campo es requerido" class="form-control contact-input" required id="inputname" placeholder="Luis José Hidalgo">
+                                <input type="text" name="fullname" title="Este campo es requerido" class="form-control contact-input" required id="inputname">
                             </div>
                             <div class="mb-3">
                                 <label for="inputphone" class="form-label text-white">Celular</label>
-                                <input type="text" name="phone" title="Este campo es requerido" minlength="9" maxlength="9" required onkeypress="return soloNumeros(event)" class="form-control contact-input" id="inputphone" placeholder="932059359">
+                                <input type="text" name="phone" title="Este campo es requerido" minlength="9" maxlength="9" required onkeypress="return soloNumeros(event)" class="form-control contact-input" id="inputphone">
                             </div>
                             <div class="mb-3">
                                 <label for="inputemail" class="form-label text-white">Correo electrónico</label>
-                                <input type="email" name="email" title="Este campo es requerido" class="form-control contact-input" required id="inputemail" placeholder="micorreo@gmail.com">
+                                <input type="email" name="email" title="Este campo es requerido" class="form-control contact-input" required id="inputemail">
                             </div>
                         </div>
                         <div class="col-md-4">

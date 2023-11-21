@@ -16,7 +16,7 @@ $courses = $stmt->fetchAll(PDO::FETCH_OBJ);
                 <div class="col-md-6">
                     <h1 class="text-dark mb-3 fw-bold">Nuestro Cursos</h1>
                     <p class="text-secondary mb-5">
-                        Transformando mentes, creando innovadores. ¡Descubre el futuro en la Unidad de Posgrado de la Facultad de Ingeniería de Sistemas e Informática!
+                        Transformando mentes, creando innovadores. ¡Descubre el futuro profesional en la Unidad de Posgrado de la Facultad de Ingeniería de Sistemas e Informática!
                     </p>
                     <a href="<?= $url ?>courses#contact" class="btn bg-primary text-white fs-4 fw-bold px-4">Solicitar información</a>
                 </div>
@@ -73,22 +73,22 @@ $courses = $stmt->fetchAll(PDO::FETCH_OBJ);
                     <div class="col-lg-4 col-sm-4 p-3">
                         <div class="d-flex text-justify">
                             <a href="course?view=<?=$i->idcourses?>&name=<?=$i->name_courses?>" class="p-3 bg-white rounded course-item" style="z-index: 1000;">
-                                <h6 class="mb-3 fw-bold text-center text-uppercase">Mayor Desarrollo Profesional</h6>
+                                <h6 class="mb-3 fw-bold text-center text-uppercase"><?= $i->name_courses ?></h6>
                                 <p class="text-center text-secondary">
-                                    Una de las mejores carreras
+                                    <?= $i->text_courses ?>
                                 </p>
                                 <div class="d-flex justify-content-center align-items-center pt-2">
                                     <span class="border-end d-flex flex-column text-center text-primary px-3">
                                         <i class="fa-solid fa-clock"></i>
-                                        <strong>31 creditos</strong>
+                                        <strong><?=$i->date_courses?></strong>
                                     </span>
                                     <span class="border-end d-flex flex-column text-center text-primary px-3">
                                         <i class="fa-solid fa-graduation-cap"></i>
-                                        <strong>31 creditos</strong>
+                                        <strong><?=$i->credits_courses?> creditos</strong>
                                     </span>
                                     <span class="d-flex flex-column text-center text-primary px-3">
                                         <i class="fa-solid fa-money-bill-wave"></i>
-                                        <strong>3000 Soles</strong>
+                                        <strong>S/ <?=$i->price_courses?></strong>
                                     </span>
                                 </div>
                             </a>
@@ -108,15 +108,15 @@ $courses = $stmt->fetchAll(PDO::FETCH_OBJ);
                     <div class="col-md-4 pe-5">
                         <div class="mb-3">
                             <label for="inputname" class="form-label text-white">Nombres y apellidos</label>
-                            <input type="text" name="fullname" title="Este campo es requerido" class="form-control contact-input" required id="inputname" placeholder="Luis José Hidalgo">
+                            <input type="text" name="fullname" title="Este campo es requerido" class="form-control contact-input" required id="inputname">
                         </div>
                         <div class="mb-3">
                             <label for="inputphone" class="form-label text-white">Celular</label>
-                            <input type="text" name="phone" title="Este campo es requerido" minlength="9" maxlength="9" required onkeypress="return soloNumeros(event)" class="form-control contact-input" id="inputphone" placeholder="932059359">
+                            <input type="text" name="phone" title="Este campo es requerido" minlength="9" maxlength="9" required onkeypress="return soloNumeros(event)" class="form-control contact-input" id="inputphone">
                         </div>
                         <div class="mb-3">
                             <label for="inputemail" class="form-label text-white">Correo electrónico</label>
-                            <input type="email" name="email" title="Este campo es requerido" class="form-control contact-input" required id="inputemail" placeholder="micorreo@gmail.com">
+                            <input type="email" name="email" title="Este campo es requerido" class="form-control contact-input" required id="inputemail">
                         </div>
                     </div>
                     <div class="col-md-4">

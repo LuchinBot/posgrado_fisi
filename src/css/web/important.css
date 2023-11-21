@@ -154,6 +154,7 @@ button:focus {
     animation: borderSpin 5s linear infinite;
 }
 
+
 @keyframes borderSpin {
     0% {
         border: 5px solid #974c7e19;

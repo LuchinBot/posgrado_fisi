@@ -16,7 +16,7 @@
                 <li><a href="<?= $url ?>" class="nav-link px-2 link-secondary">Inicio</a></li>
                 <li><a href="<?= $url ?>courses" class="nav-link px-2">Cursos</a></li>
                 <li><a href="<?= $url ?>about" class="nav-link px-2">Nosotros</a></li>
-                <li><a href="#contact" class="nav-link px-2">Más Información</a></li>
+                <li><a href="<?= $url ?>info" class="nav-link px-2">Más Información</a></li>
             </ul>
             <div class="col-md-3 d-flex justify-content-end">
                 <a href="<?= $url ?>login" class="btn btn-outline-primary me-2">Ingresar</a>
@@ -29,7 +29,7 @@
                 <li><a href="<?= $url ?>" class="nav-link px-2 link-secondary">Inicio</a></li>
                 <li><a href="<?= $url ?>courses" class="nav-link px-2">Cursos</a></li>
                 <li><a href="<?= $url ?>about" class="nav-link px-2">Nosotros</a></li>
-                <li><a href="#contact" class="nav-link px-2">Más Información</a></li>
+                <li><a href="<?= $url ?>info" class="nav-link px-2">Más Información</a></li>
             </ul>
         </div>
     </nav>

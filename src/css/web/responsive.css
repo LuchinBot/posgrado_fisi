@@ -2,6 +2,7 @@
     .logo {
         display: none !important;
     }
+
     .logo-fisi {
         display: block !important;
         height: 40px !important;
@@ -45,6 +46,10 @@
 
     .collapse-navbar {
         display: flex !important;
+    }
+
+    .hr-info {
+        margin-right: 0 !important;
     }
 
     /*Other*/

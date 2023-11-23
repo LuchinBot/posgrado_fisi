@@ -99,42 +99,5 @@ $courses = $stmt->fetchAll(PDO::FETCH_OBJ);
         </div>
     </div>
 </div>
-<div class="container-fluid pb-0 pt-5 base-contact" id="contact">
-    <div class="container p-0 border-top">
-        <h3 class="text-white fw-bold mt-3">Solicita información</h3>
-        <form method="post" action="contact" id="validateForm">
-            <fieldset>
-                <div class="row mt-4">
-                    <div class="col-md-4 pe-5">
-                        <div class="mb-3">
-                            <label for="inputname" class="form-label text-white">Nombres y apellidos</label>
-                            <input type="text" name="fullname" title="Este campo es requerido" class="form-control contact-input" required id="inputname">
-                        </div>
-                        <div class="mb-3">
-                            <label for="inputphone" class="form-label text-white">Celular</label>
-                            <input type="text" name="phone" title="Este campo es requerido" minlength="9" maxlength="9" required onkeypress="return soloNumeros(event)" class="form-control contact-input" id="inputphone">
-                        </div>
-                        <div class="mb-3">
-                            <label for="inputemail" class="form-label text-white">Correo electrónico</label>
-                            <input type="email" name="email" title="Este campo es requerido" class="form-control contact-input" required id="inputemail">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="mb-3">
-                            <label for="textarea" class="form-label text-white">Describa la solicitud</label>
-                            <textarea class="form-control contact-textarea" name="message" title="Este campo es requerido" required id="textarea" placeholder="Solicito información..." rows="8"></textarea>
-                        </div>
-                    </div>
-                    <div class="col-md-4 p-0 base-image-contact">
-                        <img src="<?= $url ?>src/img/default/contact.png" class="image-contact">
-                        <span class="float-contact">
-                            <button type="submit">Enviar!</button>
-                        </span>
-                    </div>
-                </div>
-            </fieldset>
-        </form>
-    </div>
-</div>
 <?php include('app/layouts/footer.php') ?>
 <?php include('app/layouts/scripts.php') ?>

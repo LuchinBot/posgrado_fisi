@@ -15,11 +15,12 @@
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 ul-navbar">
                 <li><a href="<?= $url ?>" class="nav-link px-2 link-secondary">Inicio</a></li>
                 <li><a href="<?= $url ?>courses" class="nav-link px-2">Cursos</a></li>
+                <li><a href="<?= $url ?>egresados" class="nav-link px-2">Egresados</a></li>
                 <li><a href="<?= $url ?>about" class="nav-link px-2">Nosotros</a></li>
                 <li><a href="<?= $url ?>info" class="nav-link px-2">Más Información</a></li>
             </ul>
             <div class="col-md-3 d-flex justify-content-end">
-                <a href="<?= $url ?>login" class="btn btn-outline-primary me-2">Ingresar</a>
+                <a href="<?= $url ?>blogs" class="btn btn-outline-primary me-2 fw-bold">Blog</a>
                 <a href="https://iposgrado.unsm.edu.pe/login" target="_blank" class="btn btn-success text me-2">Intranet</a>
                 <button type="button" class="btn btn-primary collapse-navbar" style="display: none;"><i class="fa fa-bars"></i></button>
             </div>
@@ -99,6 +100,18 @@ if ($page == 2) { ?>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
+                                    <a href="<?= $url ?>app/view/blogs" class="nav-link">
+                                        <i class="fa-brands fa-microblog nav-icon"></i>
+                                        <p>Nuestro Blog</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= $url ?>app/view/egregados" class="nav-link">
+                                        <i class="fa-solid fa-user-graduate nav-icon"></i>
+                                        <p>Egresados</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="<?= $url ?>app/view/teams" class="nav-link">
                                         <i class="fa fa-id-card nav-icon"></i>
                                         <p>Personal</p>
@@ -110,9 +123,10 @@ if ($page == 2) { ?>
                                         <p>Cursos</p>
                                     </a>
                                 </li>
+
                                 <li class="nav-item">
                                     <a href="<?= $url ?>app/view/contact" class="nav-link">
-                                        <i class="fa-solid fa-graduation-cap nav-icon"></i>
+                                        <i class="fa-solid fa-phone nav-icon"></i>
                                         <p>Contáctos</p>
                                     </a>
                                 </li>

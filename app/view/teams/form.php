@@ -36,7 +36,7 @@ if (isset($_GET['id'])) {
                     </select>
                 </div>
                 <div class="col-6 form-group">
-                    <label>Perfil</label>
+                    <label>Cargo</label>
                     <select class="select2" name="idjobs" style="width: 100%;" require title="Campo requerido">
                         <?php foreach ($jobs as $i) :
                             if ($i->idjobs == $data['idjobs']) { ?>

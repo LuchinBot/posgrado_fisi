@@ -106,7 +106,7 @@ if ($page == 2) { ?>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= $url ?>app/view/egregados" class="nav-link">
+                                    <a href="<?= $url ?>app/view/egresados" class="nav-link">
                                         <i class="fa-solid fa-user-graduate nav-icon"></i>
                                         <p>Egresados</p>
                                     </a>

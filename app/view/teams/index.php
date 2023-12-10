@@ -99,7 +99,7 @@ $jobs = $stmt->fetchAll(PDO::FETCH_OBJ);
                                     <td><?= $i->name_jobs ?></td>
                                     <td>
                                         <button type="button" class="btn btn-primary btn-id" data-bs-toggle="modal" data-bs-target="#ModalEdit" id="<?= $i->idteams  ?>"><i class="fa-solid fa-pen-to-square"></i></button>
-                                        <a href="update?idHide=<?= $i->idteams ?>" class="btn text-white bg-danger"><i class="fa-solid fa-trash"></i></a>
+                                        <button type="button" id="<?= $i->idteams ?>" class="btn text-white bg-danger btn-delete"><i class="fa-solid fa-trash"></i></button>
                                     </td>
                                 </tr>
                             <?php $count++;

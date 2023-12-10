@@ -72,6 +72,8 @@ if ($page == 2) {
     <link href="<?= $url ?>src/plugins/fontawesome/css/brands.min.css" rel="stylesheet">
     <link href="<?= $url ?>src/plugins/summernote/summernote-bs4.min.css" rel="stylesheet">
     <link href="<?= $url ?>src/plugins/datatables/jquery.dataTables.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+
   <?php } ?>
 
 

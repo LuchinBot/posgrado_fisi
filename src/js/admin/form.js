@@ -14,6 +14,30 @@ $(document).ready(function () {
 
     });
 
+    $('.btn-delete').click(function () {
+        id = $(this).attr('id');
+        console.log(id);
+        $.confirm({
+            title: '¡Advertencia!',
+            content: '<i class="fa-solid fa-circle-exclamation"></i><br>¿Seguro que desea eliminar este registro?',
+            buttons: {
+                confirmar: function () {
+                    $.ajax({
+                        type: 'GET',
+                        url: 'update?idHide=' + id,
+                        success: function (data) {
+                            location.reload();
+                        }
+                    });
+                },
+                cancelar: function () {
+                    // Close alert
+                    $('.alert').fadeOut();
+                }
+            }
+        });
+    });
+
 
 
 });

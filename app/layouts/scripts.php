@@ -59,6 +59,8 @@
         <script src="<?= $url ?>src/plugins/select2/select2.min.js"></script>
         <script src="<?= $url ?>src/plugins/datatables/jquery.dataTables.js"></script>
         <script src="<?= $url ?>src/plugins/jquery-validate/jquery.validate.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+
 
         <!--Page-->
         <script src="<?= $url ?>src/js/admin/code.js"></script>

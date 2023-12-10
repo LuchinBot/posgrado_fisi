@@ -53,7 +53,7 @@ $contact = $stmt->fetchAll(PDO::FETCH_OBJ);
                                     <td><?= $i->post_contact ?></td>
                                     <td>
                                         <button type="button" class="btn btn-primary btn-id" data-bs-toggle="modal" data-bs-target="#ModalEdit" id="<?= $i->idcontact  ?>"><i class="fa-solid fa-eye"></i></button>
-                                        <a href="update?idHide=<?= $i->idcontact ?>" class="btn text-white bg-danger"><i class="fa-solid fa-trash"></i></a>
+                                        <button type="button" id="<?= $i->idcontact ?>" class="btn text-white bg-danger btn-delete"><i class="fa-solid fa-trash"></i></button>
                                     </td>
                                 </tr>
                             <?php $count++;

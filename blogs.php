@@ -20,7 +20,7 @@ $data2 = $stmt->fetchAll(PDO::FETCH_OBJ);
     <div class="col d-flex">
         <div class="col-9 pe-5">
             <div class="row mb-3">
-                <input type="search" id="search" placeholder="Buscar por el título de la blog" autofocus class="form-control rounded-0 border-0 border-bottom w-100" />
+                <input type="search" id="search" placeholder="Buscar por el título del blog" autofocus class="form-control rounded-0 border-0 border-bottom w-100" />
             </div>
             <div class="row" id="result">
                 <?php foreach ($data2 as $v) : ?>

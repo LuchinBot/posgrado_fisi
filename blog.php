@@ -1,7 +1,7 @@
 <?php
 if (isset($_GET['ver'])) {
 
-    $page = 1;
+    $page = 3;
     $title_page = $_GET['title'];
     include('app/layouts/header.php');
 

@@ -1,5 +1,5 @@
 <?php
-$page = 1;
+$page = 3;
 $title_page = 'Blog - UPG FISI';
 include('app/layouts/header.php');
 
@@ -42,6 +42,7 @@ $data2 = $stmt->fetchAll(PDO::FETCH_OBJ);
             </div>
         </div>
         <div class="col-3">
+            <div class=""><img src="src/img/default/citi.jpg" alt="" style="width: 100%;"></div>
             <div class="position-relative">
                 <h4 class="text-primary pb-2 fw-bold bb-title">Blogs antiguos</h4>
             </div>

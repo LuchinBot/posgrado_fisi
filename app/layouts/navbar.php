@@ -191,4 +191,41 @@ if ($page == 2) { ?>
             </nav>
         </div>
     </aside>
+<?php }	 if ($page == 3) { ?>
+    <div class="container-fluid p-0">
+        <div class="bg-primary" style="height: 5px;">
+
+        </div>
+    </div>
+    <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary bg-white" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
+        <div class="container-fluid">
+            <div class="col-md-3 mb-2 mb-md-0">
+                <a class="navbar-brand d-flex" href="<?= $url ?>">
+                    <img src="<?= $url ?>src/img/default/citi.png" class="logo">
+                    <img src="<?= $url ?>src/img/default/citi-mobile.png" class="logo-fisi" style="display: none;">
+                </a>
+            </div>
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 ul-navbar">
+                <li><a href="<?= $url ?>" class="nav-link px-2 link-secondary">Inicio</a></li>
+                <li><a href="<?= $url ?>courses" class="nav-link px-2">Cursos</a></li>
+                <li><a href="<?= $url ?>egresados" class="nav-link px-2">Egresados</a></li>
+                <li><a href="<?= $url ?>about" class="nav-link px-2">Nosotros</a></li>
+                <li><a href="<?= $url ?>info" class="nav-link px-2">Más Información</a></li>
+            </ul>
+            <div class="col-md-3 d-flex justify-content-end">
+                <a href="<?= $url ?>blogs" class="btn btn-outline-primary me-2 fw-bold">Blog</a>
+                <a href="https://iposgrado.unsm.edu.pe/login" target="_blank" class="btn btn-success text me-2">Intranet</a>
+                <button type="button" class="btn btn-primary collapse-navbar" style="display: none;"><i class="fa fa-bars"></i></button>
+            </div>
+        </div>
+        <div class="border-top navbar-mobile" style="display: none;">
+            <ul class="nav py-2">
+                <li><a href="<?= $url ?>" class="nav-link px-2 link-secondary">Inicio</a></li>
+                <li><a href="<?= $url ?>courses" class="nav-link px-2">Cursos</a></li>
+                <li><a href="<?= $url ?>about" class="nav-link px-2">Nosotros</a></li>
+                <li><a href="<?= $url ?>info" class="nav-link px-2">Más Información</a></li>
+            </ul>
+        </div>
+    </nav>
+
 <?php } ?>

@@ -1,7 +1,7 @@
     </div>
     <div class="loader-page"></div>
 
-    <?php if ($page == 1) { ?>
+    <?php if ($page == 1 || $page == 3) { ?>
         <!--Others-->
         <script src="<?= $url ?>src/plugins/popper/popper.min.js"></script>
         <script src="<?= $url ?>src/plugins/bootstrap/bootstrap.min.js"></script>

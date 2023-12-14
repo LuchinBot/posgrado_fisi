@@ -20,10 +20,12 @@ input[type=search]:focus {
 #result {
    transition: 0.9s;
 }
-
+.blocito {
+    padding-right: 3rem;
+}
 /*Blog*/
 .blog-large .blog-img {
-    min-width: 300px !important;
+    width: 300px !important;
     height: 150px !important;
 }
 

@@ -16,9 +16,9 @@ $data2 = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 ?>
 
-<div class="container d-flex py-4">
-    <div class="col d-flex">
-        <div class="col-9 pe-5">
+<div class="row px-4 py-4">
+    <div class="row d-flex">
+        <div class="col-md-9 blocito">
             <div class="row mb-3">
                 <input type="search" id="search" placeholder="Buscar por el título del blog" autofocus class="form-control rounded-0 border-0 border-bottom w-100" />
             </div>
@@ -41,7 +41,7 @@ $data2 = $stmt->fetchAll(PDO::FETCH_OBJ);
                 <?php endforeach; ?>
             </div>
         </div>
-        <div class="col-3">
+        <div class="col-md-3">
             <div class=""><img src="src/img/default/citi.jpg" alt="" style="width: 100%;"></div>
             <div class="position-relative">
                 <h4 class="text-primary pb-2 fw-bold bb-title">Blogs antiguos</h4>

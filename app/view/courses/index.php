@@ -181,7 +181,7 @@ $types = $stmt->fetchAll(PDO::FETCH_OBJ);
                                 <textarea name="presentation" class="form-control" required title="Campo requerido"></textarea>
                             </div>
                             <div class=" form-group">
-                                <label>Presentación del curso</label>
+                                <label>Objetivos del curso</label>
                                 <textarea name="objetives" id="summernote" class="form-control" required title="Campo requerido"></textarea>
                             </div>
                             <div class=" form-group">

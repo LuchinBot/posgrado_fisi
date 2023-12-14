@@ -20,9 +20,9 @@ if (isset($_GET['ver'])) {
 
 ?>
     <div class="container-fluid" style="background: #F5F5F5">
-        <div class="container d-flex py-4">
-            <div class="col d-flex">
-                <div class="col-9 pe-5 ">
+        <div class="row px-4 d-flex py-4">
+            <div class="row d-flex">
+                <div class="col-md-9 blocito">
                     <div class="bg-white">
                         <div style="background: url('<?= $url . $data['imagen_blog'] ?>') center center no-repeat;background-size: cover; height:300px; overflow:hidden" class="position-relative">
                             <div class="float-mas py-2 px-3 fst-italic fw-light">
@@ -39,7 +39,7 @@ if (isset($_GET['ver'])) {
                         </div>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-md-3 pt-2">
                     <div class="position-relative">
                         <h4 class="text-primary pb-2 fw-bold bb-title">Blogs antiguos</h4>
                     </div>

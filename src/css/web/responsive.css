@@ -77,6 +77,15 @@
     .footer img {
         width: 30%;
     }
+    .blog-img {
+        width: 100% !important;
+    }
+    small{
+        font-size: 10px !important;
+    }
+    .blocito{
+        padding-right: 1rem !important;
+    }
 
 
 }
